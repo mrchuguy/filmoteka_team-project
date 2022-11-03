@@ -4,10 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/basicLightbox/5.0.0/basicLightbox.min.css"
+      integrity="sha512-C+KPK958JmUdU8B9SVr8YpEZtQ1T1XrFX/OLvE/lt336DFWXFHL5Y9/tUewMEU+Uy3dUAS363XXLdBine0WDyQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
+    <header class="head">
+      <div class="section">
+        <div class="head__nav">
+          <a class="head__logo" href="/">
+            <svg width="24" height="24">
+              <use href="./svg/sprite.svg#icon-film"></use>
+            </svg>
+            <span class="logo__text">Filmoteka</span>
+          </a>
+          <div>
+            <a class="head__link--home current home" href="./index.html"
+              >Home</a
+            >
+            <a class="head__link--library library" href="./library.html">
+              My library
+            </a>
+          </div>
+        </div>
+        <form class="search-form" id="search-form">
+          <input
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Movie search"
+          />
+          <button class="submit-button" type="submit">
+            <svg width="12" height="12">
+              <use href="./svg/sprite.svg#icon-search"></use>
+            </svg>
+          </button>
+        </form>
+        <p class="notification is-hidden">
+          Search result not successful. Enter the correct movie name and
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Карточки фильмов -->
+      <div class="gallery section"></div>
+      <!-- Пагинатор -->
+      <div class="paginator"></div>
+    </main>
+    <footer>
+      <p class="copyright">
+        © 2020 | All Rights Reserved | Developed with
+        <span>
+          <svg width="14" height="13">
+            <use href="./svg/sprite.svg#icon-favorite"></use>
+          </svg>
+        </span>
+        by GoIT Students
+      </p>
+    </footer>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/basicLightbox/5.0.0/basicLightbox.min.js"
+      integrity="sha512-jIc3kBeyfyLXBTmzUIXnbGiVK2wgWGcDIkJwkFW4bQ6v2h/piOKLwIfy3wOmKHWIu8DgYSKVth0DMUvExMYcOw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="./index.js"></script>
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <!-- <include src="./partials/example.html"></include> -->
   </body>
