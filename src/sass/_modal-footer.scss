@@ -1,0 +1,39 @@
+    .team__block {
+    display: none;
+    }
+    .team__block.active {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        width: 840px;
+        height: 840px;
+        position: relative;
+        top: auto;
+        left: auto;
+        background-color: white;
+        border-radius: 100px;
+        box-shadow: 1px 5px 5px 5px #f7f7f7;
+    }
+    .team__list {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .team__item {
+        display: flex;
+        border-radius: 75px;
+        box-shadow: 1px 5px 5px 5px #f7f7f7;
+        height: 250px;
+        width: 250px;
+    }
+    .team__photo {
+        width: 200px;
+        height: 100px;
+        border-radius: 25px;
+    }
