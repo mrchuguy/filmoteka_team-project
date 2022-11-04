@@ -1,10 +1,6 @@
-import spinner from 'jsspin';
-
-let spinner = new Spinner();
+$(window).load(function() {
  
-spinner.start();
+  $(".loader__inner").fadeOut();
+  $(".loader").delay(400).fadeOut("slow");
  
-setTimeout(function(){
-  spinner.stop();
-},5000);
-
+});
