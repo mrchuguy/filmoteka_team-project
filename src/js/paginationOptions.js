@@ -1,20 +1,11 @@
+//import ApiService from './fetch-api';
 import Pagination from 'tui-pagination';
-import axios from 'axios';
 import 'tui-pagination/dist/tui-pagination.min.css';
 
-const params = {
-  key: '30688451-760a190d43b2b36afa0e2975a',
-  q: 'car',
-  image_type: 'photo',
-  orientation: 'horizontal',
-  safesearch: true,
-  page: 1,
-  per_page: 20,
-};
+const paginationBoxEl = document.querySelector('#tui-pagination-container');
 
 const paginationOptions = {
-  totalPages: 1,
-  totalItems: 60,
+  totalItems: 20,
   itemsPerPage: 20,
   visiblePages: 5,
   centerAlign: true,
@@ -37,20 +28,4 @@ const paginationOptions = {
   },
 };
 
-const paginationBoxEl = document.querySelector('#tui-pagination-container');
-//const pagination = new Pagination(paginationBoxEl, paginationOptions);
-
-// pagination.on('beforeMove', evt => {
-//   const { page } = evt;
-//   params.page = page;
-
-//   fetchImages()
-//     .then(response => console.log(response.data))
-//     .catch(error => console.log(error.message));
-
-// });
-
-const fetchImages = async () => {
-  const response = await axios.get('https://pixabay.com/api/', { params });
-  return response;
-};
+export default paginationOptions;
