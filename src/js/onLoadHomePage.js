@@ -2,14 +2,14 @@ import ApiService from './fetch-api';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
 import paginationOptions from './paginationOptions';
-//import renderFilmsOnHomePage from './render-films';
+import { renderFilmsOnHomePage } from './render-films';
 
 const newApi = new ApiService();
 
 const onLoadHomePage = () => {
   newApi.findTrending().then(response => {
     /* Render movies */
-    console.log(response.data.results);
+    renderFilmsOnHomePage(response.data.results);
 
     /* Pagination */
     initPagination(true, response.data.total_results);
@@ -20,7 +20,7 @@ const onLoadSearchPage = q => {
   newApi.searchQuery = q;
   newApi.findByKeyword().then(response => {
     /* Render movies */
-    console.log(response.data.results);
+    renderFilmsOnHomePage(response.data.results);
 
     /* Pagination */
     initPagination(false, response.data.total_results);
@@ -38,16 +38,16 @@ const initPagination = (isPopularFilms, totalResult) => {
     if (isPopularFilms)
       newApi.findTrending().then(response => {
         /* Render movies */
-        console.log(response.data.results);
+        renderFilmsOnHomePage(response.data.results);
       });
     else
       newApi.findByKeyword().then(response => {
         /* Render movies */
-        console.log(response.data.results);
+        renderFilmsOnHomePage(response.data.results);
       });
   });
 };
 
 onLoadHomePage();
-//onLoadSearchPage('car');
+
 export default onLoadSearchPage;
