@@ -47,7 +47,6 @@ const initPagination = (isPopularFilms, totalResult) => {
       });
   });
 };
-
 onLoadHomePage();
 
 export default onLoadSearchPage;

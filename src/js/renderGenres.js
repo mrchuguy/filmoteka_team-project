@@ -1,0 +1,28 @@
+import ApiService from './fetch-api';
+
+const fetchGenres = new ApiService();
+
+let genres = null;
+
+const initGenres = () => {
+  fetchGenres.getMovieGenres().then(response => {
+    genres = response.data.genres;
+    console.log(renderGenres([28, 18, 36]));
+  });
+};
+
+export const renderGenres = arrGenresId => {
+  const suitableGenres = arrGenresId.map(
+    genreId => genres.filter(genre => genre.id === genreId)[0].name
+  );
+
+  if (suitableGenres.length > 3) {
+    suitableGenres.splice(2, suitableGenres.length - 2);
+    suitableGenres.push('Other');
+  }
+
+  const genresString = suitableGenres.join(', ');
+  return genresString;
+};
+
+initGenres();
