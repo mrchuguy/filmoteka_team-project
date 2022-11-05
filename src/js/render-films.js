@@ -1,4 +1,4 @@
-//
+import ApiService from './fetch-api';
 
 const films = [
   {
@@ -366,21 +366,24 @@ const films = [
 const galleryContainerHome = document.querySelector('.gallery');
 const galleryContainerLibrary = document.querySelector('.library');
 
+// Розмітка на головну сторінку
+
 export function renderFilmsOnHomePage() {
+  galleryContainerHome.innerHTML = '';
   const markup = films
     .map(
       film =>
         `<div class="photo-card">
       <a class="photo" href=${film.backdrop_path} >
-      <img  src=${film.poster_path} alt="${film.title}" loading="lazy" title="${
+      <img  src=https://image.tmdb.org/t/p/w500${film.poster_path} alt="${
           film.title
-        }"/></a>
+        }" loading="lazy" title="${film.title}"/></a>
       <div class="info">  
       <p class="info-name">
       ${film.title}</p>
-      <p class="info-genre-year">${film.genre_ids} | ${Number.parseInt(
-          film.release_date
-        )}</p>
+      <p class="info-genre-year">${transformGenre(
+        film.genre_ids
+      )} | ${Number.parseInt(film.release_date)}</p>
       
       </div>
         </div>`
@@ -390,15 +393,18 @@ export function renderFilmsOnHomePage() {
   galleryContainerHome.insertAdjacentHTML('beforeend', markup);
 }
 
-export function renderFilmsOnLibraryPage() {
+// Розмітка на бібліотеку
+
+export function renderFilmsOnLibraryPage(films) {
+  galleryContainerLibrary.innerHTML = '';
   const markup = films
     .map(
       film =>
         `<div class="photo-card">
       <a class="photo" href=${film.backdrop_path} >
-      <img  src=${film.poster_path} alt="${film.title}" loading="lazy" title="${
+      <img  src=https://image.tmdb.org/t/p/w500${film.poster_path} alt="${
           film.title
-        }"/></a>
+        }" loading="lazy" title="${film.title}"/></a>
       <div class="info">
       <p class="info-name">
       ${film.title}</p>
@@ -413,4 +419,27 @@ export function renderFilmsOnLibraryPage() {
     .join('');
 
   galleryContainerLibrary.insertAdjacentHTML('beforeend', markup);
+}
+
+// Функція отримання-переводу жанрів з запиту
+
+export async function transformGenre(ids) {
+  try {
+    const apiService = new ApiService();
+    const fetchedGenres = await apiService.getMovieGenres();
+    const arrayOfGenres = fetchedGenres.data.genres;
+
+    let currentFilmGenres = [];
+
+    arrayOfGenres.forEach(item => {
+      if (ids.includes(item.id)) {
+        currentFilmGenres.push(item.name);
+      }
+    });
+
+    console.log(currentFilmGenres.join(', '));
+    return currentFilmGenres.join(', ');
+  } catch {
+    error => console.log(error);
+  }
 }
