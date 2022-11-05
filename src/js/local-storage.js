@@ -28,7 +28,7 @@ export function loadMovie (key){
 // ретурн відфільтрований масив об`єктів, в залежності, що передали аргументом
 //в constName, це або переглянуті або в фільми черзі
 
-export function loadAllMovie() {
+export function loadAllMovie(constName) {
  let arrayMovie = []
   try {
    for(let key in localStorage) 
