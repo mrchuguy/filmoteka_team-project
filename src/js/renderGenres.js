@@ -7,7 +7,6 @@ let genres = null;
 const initGenres = () => {
   fetchGenres.getMovieGenres().then(response => {
     genres = response.data.genres;
-    console.log(renderGenres([28, 18, 36]));
   });
 };
 
