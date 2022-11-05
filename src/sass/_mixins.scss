@@ -1,0 +1,13 @@
+// Style will work only from this breakpoint
+@mixin respond-from-min($breakpoint) {
+  @media screen and (min-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+// Style will work only to this breakpoint
+@mixin respond-to-max($breakpoint) {
+  @media screen and (max-width: #{$breakpoint}) {
+    @content;
+  }
+}
