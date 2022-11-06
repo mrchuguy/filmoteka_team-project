@@ -1,13 +1,17 @@
 .footer__modal {
+    display: none;
+}
+.footer__modal.is-hidden {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     position: absolute;
     top: 237px;
     left: auto;
-    width: 774px;
+    width: 750px;
     height: 940px;
     background-color: #f7f7f7;
-    border-radius: 75px;
+    border-radius: 35px;
     box-shadow: 0px 3px 3px rgb(0 0 0 / 12%), 0px 3px 3px rgb(0 0 0 / 14%), 0px 3px 3px rgb(0 0 0 / 20%);
 }
 .footer__team {
@@ -28,6 +32,12 @@
     border-bottom-right-radius: 25px;
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 1px 1px rgb(0 0 0 / 20%);
 }
+.footer__item:hover {
+    box-shadow: 1px 1px 2px 2px #545454;
+}
+.footer__item:focus {
+    box-shadow: 1px 1px 2px 2px #545454;
+}
 .footer__photo {
     display: block;
     margin: 0 auto;
@@ -37,12 +47,14 @@
 }
 .footer__name {
     display: block;
+    text-transform: uppercase;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 15px;
     font-size: 16px;
 }
 .footer__worker {
     display: block;
+    width: 50%;
     text-align: center;
     padding-top: 5px;
     font-size: 13px;
@@ -51,20 +63,48 @@
     position: absolute;
     display: flex;
     justify-content: space-between;
-    gap: 134px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
     bottom: 18px;
+}
+.footer__social-circle:hover {
+    box-shadow: 1px 1px 2px 2px #545454;
+}
+.footer__social-circle:focus {
+    box-shadow: 1px 1px 2px 2px #545454;
 }
 .footer__social-circle {
 display: flex;
 justify-content: center;
-align-items: center;
+    align-items: center;
     background-color: #f7f7f7;
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
+    box-shadow: 0px 1px 1px rgb(0 0 0 /24%);
 }
 .footer__social-svg {
     width: 34px;
     height: 34px;
-    fill: black;
+    fill: #545454;
+}
+.footer__block {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 22%;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    border: solid 1px #545454;
+}
+.footer__block-title {
+    color: #545454;
+    font-size: 55px;
+    text-transform: uppercase;
+}
+.footer__about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
