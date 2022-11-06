@@ -11,6 +11,8 @@ const refs = {
   watchedBtn: document.querySelector('.watched'),
   queueBtn: document.querySelector('.queue'),
   gallery: document.querySelector('.gallery'),
+  modal: document.querySelector('.backdrop-info'),
+  modalBtnClose: document.querySelector('.modal__btn-close'),
 };
 //-----------------------------------------//
 console.log(refs.gallery);
@@ -23,6 +25,7 @@ refs.searchInput.addEventListener('input', inputValue);
 refs.searchBtn.addEventListener('click', submitSearch);
 refs.searchBtn.addEventListener('click', submitSearch);
 refs.gallery.addEventListener('click', onGalleryCard);
+refs.modalBtnClose.addEventListener('click', modalClose);
 
 //-------------Functions----------------------//
 
@@ -42,6 +45,10 @@ function submitSearch(event) {
 
 function onGalleryCard(event) {
   event.preventDefault();
-  console.log('currenttarget:', event.currentTarget);
-  console.log('target:', event.target);
+  refs.modal.classList.toggle('is-hidden');
+}
+
+function modalClose(e) {
+  e.preventDefault();
+  refs.modal.classList.toggle('is-hidden');
 }
