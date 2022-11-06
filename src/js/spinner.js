@@ -1,6 +1,8 @@
-$(window).load(function() {
- 
-  $(".loader__inner").fadeOut();
-  $(".loader").delay(400).fadeOut("slow");
- 
-});
+function spinnerToggle() {
+  document.querySelector('.loader-overlay').classList.toggle('is-open');
+}
+function hideSpinner() {
+  document.querySelector('.loader-overlay').classList.remove('is-open');
+}
+
+export { spinnerToggle, hideSpinner };
