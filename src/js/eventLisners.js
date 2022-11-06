@@ -1,5 +1,6 @@
 //-----imports------//
-
+import { notifyOptions, WARNING_MESSAGE } from './notifyOptions';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import onLoadSearchPage from './onLoadHomePage';
 
 //-----refs------///
@@ -32,7 +33,11 @@ function inputValue(e) {
 
 function submitSearch(event) {
   event.preventDefault();
-  onLoadSearchPage(searchValue);
+  if (searchValue === '') {
+    Notify.failure(WARNING_MESSAGE, notifyOptions);
+  } else {
+    onLoadSearchPage(searchValue);
+  }
 }
 
 function onGalleryCard(event) {
