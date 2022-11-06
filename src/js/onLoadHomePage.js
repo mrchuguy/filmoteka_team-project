@@ -9,7 +9,7 @@ import { notifyOptions, ERROR_MESSAGE } from './notifyOptions';
 
 const newApi = new ApiService();
 
-const windowScroll = () => {
+export const windowScroll = () => {
   if (window.pageYOffset > 0) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
