@@ -20,6 +20,15 @@ const windowScroll = () => {
   }
 };
 
+const hideSpinnerAfterLoad = () => {
+  const lastImage =
+    document.querySelector('.gallery').lastElementChild.firstElementChild
+      .firstElementChild;
+  lastImage.onload = function () {
+    hideSpinner();
+  };
+};
+
 const onLoadHomePage = () => {
   spinnerToggle();
   newApi.findTrending().then(response => {
@@ -28,7 +37,8 @@ const onLoadHomePage = () => {
 
     /* Pagination */
     initPagination(true, response.data.total_results);
-    hideSpinner();
+
+    hideSpinnerAfterLoad();
   });
 };
 
@@ -45,7 +55,7 @@ const onLoadSearchPage = q => {
     } else {
       Notify.failure(ERROR_MESSAGE, notifyOptions);
     }
-    hideSpinner();
+    hideSpinnerAfterLoad();
   });
 };
 
@@ -64,13 +74,13 @@ const initPagination = (isPopularFilms, totalResult) => {
       newApi.findTrending().then(response => {
         /* Render movies */
         renderFilmsOnHomePage(response.data.results);
-        hideSpinner();
+        hideSpinnerAfterLoad();
       });
     else
       newApi.findByKeyword().then(response => {
         /* Render movies */
         renderFilmsOnHomePage(response.data.results);
-        hideSpinner();
+        hideSpinnerAfterLoad();
       });
   });
 };
