@@ -15,6 +15,8 @@ const refs = {
   modalBtnClose: document.querySelector('.modal__btn-close'),
 };
 //-----------------------------------------//
+console.log(refs.gallery);
+
 let searchValue = '';
 
 //---------eventLisners------------//
@@ -43,9 +45,6 @@ function submitSearch(event) {
 
 function onGalleryCard(event) {
   event.preventDefault();
-  if (event.target.parentNode.parentNode.tagName !== 'DIV') {
-    return;
-  }
   refs.modal.classList.toggle('is-hidden');
 }
 
