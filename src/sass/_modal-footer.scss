@@ -1,4 +1,7 @@
-.footer__modal {
+.footer__model {
+    display: none;
+}
+.footer__modal.is-hidden {
     display: flex;
     flex-direction: column;
     position: absolute;
