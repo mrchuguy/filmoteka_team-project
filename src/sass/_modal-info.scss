@@ -1,0 +1,101 @@
+.modal {
+  //   border: 4px, red;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 806px;
+  min-height: 500px;
+  background-color: rgb(209, 206, 206);
+  transition: transform, 250ms, linear;
+  padding: 40px 12px;
+}
+
+.modal_vis {
+  display: block;
+}
+
+#close_modal {
+  color: rgba(0, 0, 0, 1);
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Times, sans-serif;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transform: rotate(45deg);
+  transition: all 0.6s;
+  box-sizing: content-box;
+}
+#close_modal:hover {
+  color: rgba(0, 0, 0, 1);
+  transform: rotate(135deg);
+}
+.modal_content {
+  display: flex;
+  background: #fff;
+}
+.img {
+}
+.modal_info {
+  margin-left: 16px;
+}
+.modal_title {
+}
+.modal_detail {
+}
+.modal_about {
+  height: 154px;
+}
+button {
+  cursor: pointer;
+}
+.btn {
+  width: 136px;
+  height: 44px;
+  left: 799px;
+  top: 553px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+.modal_button {
+  display: flex;
+}
+.btn:focus {
+  background: #ff6b01;
+  border: 1px solid #ffffff;
+}
+.button-watch {
+  margin-left: 8px;
+  padding-top: 14px;
+  padding-bottom: 12px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+}
+.button-queue {
+  margin-left: 15px;
+  padding-top: 14px;
+  padding-bottom: 12px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+}
+.button-watch:focus,
+.button-queue:focus {
+  color: #ffffff;
+}
