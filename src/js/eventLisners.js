@@ -11,7 +11,7 @@ const refs = {
   watchedBtn: document.querySelector('.watched'),
   queueBtn: document.querySelector('.queue'),
   gallery: document.querySelector('.gallery'),
-  modal: document.querySelector('.modal-info'),
+  modal: document.querySelector('.backdrop-info'),
   modalBtnClose: document.querySelector('.modal__btn-close'),
 };
 //-----------------------------------------//
