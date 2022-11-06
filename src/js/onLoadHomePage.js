@@ -5,14 +5,9 @@ import paginationOptions from './paginationOptions';
 import { renderFilmsOnHomePage } from './render-films';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { spinnerToggle, hideSpinner } from './spinner';
+import { notifyOptions, ERROR_MESSAGE } from './notifyOptions';
 
 const newApi = new ApiService();
-const notifyOptions = {
-  position: 'center-top',
-  fontSize: '14px',
-};
-const ERROR_MESSAGE =
-  'Search result not successful. Please, enter the correct movie name and try again';
 
 const windowScroll = () => {
   if (window.pageYOffset > 0) {
@@ -54,6 +49,7 @@ const onLoadSearchPage = q => {
       initPagination(false, response.data.total_results);
     } else {
       Notify.failure(ERROR_MESSAGE, notifyOptions);
+      hideSpinner();
     }
     hideSpinnerAfterLoad();
   });
