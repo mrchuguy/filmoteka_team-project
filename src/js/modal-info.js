@@ -12,4 +12,27 @@ close_modal.onclick = function () {
   window.setTimeout(function () {
      modal.classList.remove('modal_vis');
   }, 500);
-};
+  };
+  //наповнення модалки
+const modal_content = document.querySelector(".modal_content");
+let content = `<img
+      src="./img/Rectangle 18.jpg"
+      alt="img"
+      class="img"
+      width="375"
+      height="478"
+    />
+    <div class="modal_info">
+      <h2 class="modal_title">Заголовок</h2>
+      <div class="modal_detail">інформація</div>
+      <p class="modal_about">опис</p>
+      <div class="modal_button">
+        <button type="button" class="button-watch btn">
+          ADD TO WATCHED
+        </button>
+        <button type="button" class="button-queue btn">
+          ADD TO QUEUE
+        </button>
+      </div>
+    </div>`;
+modal_content.insertAdjacentHTML("beforeend", content);
