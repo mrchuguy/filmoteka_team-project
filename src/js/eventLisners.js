@@ -11,6 +11,7 @@ const refs = {
   watchedBtn: document.querySelector('.watched'),
   queueBtn: document.querySelector('.queue'),
   gallery: document.querySelector('.gallery'),
+  filmCard: document.querySelectorAll('.photo-card'),
   modal: document.querySelector('.backdrop-info'),
   modalBtnClose: document.querySelector('.modal__btn-close'),
 };
@@ -21,8 +22,8 @@ let searchValue = '';
 
 refs.searchInput.addEventListener('input', inputValue);
 refs.searchBtn.addEventListener('click', submitSearch);
-refs.searchBtn.addEventListener('click', submitSearch);
 refs.gallery.addEventListener('click', onGalleryCard);
+
 refs.modalBtnClose.addEventListener('click', modalClose);
 
 //-------------Functions----------------------//
@@ -43,7 +44,8 @@ function submitSearch(event) {
 
 function onGalleryCard(event) {
   event.preventDefault();
-  if (event.target.parentNode.parentNode.tagName !== 'DIV') {
+  console.log(event.target.parentNode.parentNode.parentNode.dataset.id);
+  if (event.target.parentNode.parentNode.parentNode.tagName !== 'LI') {
     return;
   }
   refs.modal.classList.toggle('is-hidden');
