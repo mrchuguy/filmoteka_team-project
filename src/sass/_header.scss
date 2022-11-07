@@ -145,6 +145,15 @@
   justify-content: space-between;
   border-bottom: 1px solid white;
 
+  transition: border-bottom 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  // &:hover {
+  //   border-bottom: 1px solid rgba(255, 107, 8, 1);
+  // }
+
+  // .input:active & {
+  //   border-bottom: 1px solid rgba(255, 107, 8, 1);
+  // }
+
   @media screen and (min-width: 768px) {
     max-width: 336px;
     margin: 40px auto 20px auto;
@@ -154,7 +163,8 @@
   }
 }
 
-input {
+.input {
+  width: 100%;
   background-color: transparent;
   border: none;
   outline: transparent;
@@ -164,16 +174,18 @@ input {
     color: white;
     line-height: 16px;
   }
-
-  // transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .submit-button {
-  // padding: 12px 12px;
   border-style: none;
   background-color: transparent;
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  scale: 1;
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    scale: 1.7;
+  }
 }
 
 .head__nav {
@@ -207,6 +219,7 @@ input {
 }
 
 .head__link--home {
+  display: inline-block;
   position: relative;
   margin: 0px 40px 0px 0px;
   padding: 0;
@@ -218,9 +231,17 @@ input {
   font-size: 14px;
   line-height: 14px;
   text-transform: uppercase;
+
+  scale: 1;
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    scale: 1.2;
+  }
 }
 
 .head__link--library {
+  display: inline-block;
   position: relative;
   margin: 0;
   padding: 0;
@@ -232,6 +253,13 @@ input {
   font-size: 14px;
   line-height: 14px;
   text-transform: uppercase;
+
+  scale: 1;
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    scale: 1.15;
+  }
 }
 
 .notification {
