@@ -16,12 +16,12 @@ const windowScroll = () => {
 };
 
 const hideSpinnerAfterLoad = () => {
-  const lastImage =
-    document.querySelector('.gallery').lastElementChild.firstElementChild
-      .firstElementChild;
-  lastImage.onload = function () {
-    hideSpinner();
-  };
+  // const lastImage =
+  //   document.querySelector('.gallery').lastElementChild.firstElementChild
+  //     .firstElementChild;
+  // lastImage.onload = function () {
+  hideSpinner();
+  // };
 };
 
 const onLoadHomePage = () => {
