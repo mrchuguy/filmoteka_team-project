@@ -90,6 +90,9 @@ justify-content: center;
     fill: #545454;
 }
 .footer__block {
+    display: none;
+}
+.footer__block.is-hidden {
     position: absolute;
     z-index: 2;
     top: 50%;
