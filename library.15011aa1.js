@@ -1,0 +1,2 @@
+const o=o=>{const t=`\n  <p class="notify-lib">\n    ${o} movies library is empty\n  </p>`;document.querySelector("div.library").innerHTML=t};o("Watched");const t=document.querySelector(".back-to-top");window.addEventListener("scroll",(()=>{const o=window.pageYOffset,e=document.documentElement.clientHeight;o>e&&t.classList.add("back-to-top_show"),o<e&&t.classList.remove("back-to-top_show")})),t.addEventListener("click",(()=>{window.pageYOffset>0&&window.scrollTo({top:0,behavior:"smooth"})}));
+//# sourceMappingURL=library.15011aa1.js.map
