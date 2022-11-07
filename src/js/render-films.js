@@ -7,22 +7,14 @@ const galleryContainerLibrary = document.querySelector('.library');
 
 export function renderFilmsOnHomePage(films) {
   galleryContainerHome.innerHTML = '';
-  console.log(films);
   const markup = films
     .map(
       film =>
         `<li class="gallery__item" data-id="${film.id}">
               <a class="gallery__link" href="">
                 <div class="gallery__link--wrap">
-                <div class="gallery__img-background">
-                  <img src="https://image.tmdb.org/t/p/w500${nullOrNot(
-                    film.poster_path
-                  )}" alt="${film.title}" loading="lazy"  />
-                 
-                  <img class="gallery__overlay" src="https://image.tmdb.org/t/p/w500${nullOrNot(
-                    film.poster_path
-                  )}" alt="${film.title}" loading="lazy"  />
-                </div>
+                  <img class="gallery__overlay" src=${nullOrNot(film.poster_path)}
+                   alt="${film.title}" loading="lazy"  />
                 </div>
                 <div class="info">
                   <p class="info-name"> ${film.title}</p>
@@ -46,17 +38,10 @@ export function renderFilmsOnLibraryPage(films) {
     .map(
       `<li class="gallery__item" data-id="${film.id}">
               <a class="gallery__link" href="">
-                <div class="gallery__link--wrap">
-                <div class="gallery__img-background">
-                  <img src="https://image.tmdb.org/t/p/w500${nullOrNot(
-                    film.poster_path
-                  )}" alt="${film.title}" loading="lazy"  />
-                 
-                  <img class="gallery__overlay" src="https://image.tmdb.org/t/p/w500${nullOrNot(
-                    film.poster_path
-                  )}" alt="${film.title}" loading="lazy"  />
-                </div>
-                </div>
+              <div class="gallery__link--wrap">
+              <img class="gallery__overlay" src=${nullOrNot(film.poster_path)}
+               alt="${film.title}" loading="lazy"  />
+            </div>
                 <div class="info">
                   <p class="info-name"> ${film.title}</p>
                   <p class="info-genre-year">${renderGenres(
@@ -74,10 +59,11 @@ export function renderFilmsOnLibraryPage(films) {
   galleryContainerLibrary.insertAdjacentHTML('beforeend', markup);
 }
 
-function nullOrNot(p) {
-  if (p !== null) {
-    return p;
+
+function nullOrNot(pic) {
+  if (pic === null) {
+    return 'https://i.pinimg.com/originals/26/5b/5a/265b5a98f3129dd07d3d4a4b517efc8c.png';
   } else {
-    console.log('Нет картинки :( что делать');
+    return `https://image.tmdb.org/t/p/w500${pic}`;
   }
 }
