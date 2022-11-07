@@ -1,17 +1,18 @@
 
-.footer__model {
+.footer__modal {
     display: none;
 }
 .footer__modal.is-hidden {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     position: absolute;
     top: 237px;
     left: auto;
-    width: 774px;
+    width: 747px;
     height: 940px;
     background-color: #f7f7f7;
-    border-radius: 75px;
+    border-radius: 15px;
     box-shadow: 0px 3px 3px rgb(0 0 0 / 12%), 0px 3px 3px rgb(0 0 0 / 14%), 0px 3px 3px rgb(0 0 0 / 20%);
 }
 .footer__team {
@@ -32,6 +33,12 @@
     border-bottom-right-radius: 25px;
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 1px 1px rgb(0 0 0 / 20%);
 }
+.footer__item:hover {
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 28%);
+}
+.footer__item:focus {
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 28%);
+}
 .footer__photo {
     display: block;
     margin: 0 auto;
@@ -44,6 +51,7 @@
     text-align: center;
     padding-top: 5px;
     font-size: 16px;
+    text-transform: uppercase;
 }
 .footer__worker {
     display: block;
@@ -55,7 +63,9 @@
     position: absolute;
     display: flex;
     justify-content: space-between;
-    gap: 134px;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
     bottom: 18px;
 }
 .footer__social-circle {
@@ -67,8 +77,40 @@ align-items: center;
     height: 48px;
     border-radius: 50%;
 }
+.footer__social-circle:hover {
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 28%);
+}
+.footer__social-circle:focus {
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 28%);
+}
 .footer__social-svg {
     width: 34px;
     height: 34px;
     fill: black;
+}
+.footer__about {
+    padding-top: 10px;
+}
+.footer__block {
+    display: none;
+}
+.footer__block.is-hidden {
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 15px;
+    border: solid 1px #545454;
+    box-shadow: 0px 1px 1px rgb(0 0 0 /24%);
+    top: 45%;
+    left: 25%;
+}
+.footer__block-title {
+    text-transform: uppercase;
+    font-size: 45px;
 }
