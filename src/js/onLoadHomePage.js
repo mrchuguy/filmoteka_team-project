@@ -9,19 +9,19 @@ import { notifyOptions, ERROR_MESSAGE } from './notifyOptions';
 
 const newApi = new ApiService();
 
-export const windowScroll = () => {
+const windowScroll = () => {
   if (window.pageYOffset > 0) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 };
 
 const hideSpinnerAfterLoad = () => {
-  const lastImage =
-    document.querySelector('.gallery').lastElementChild.firstElementChild
-      .firstElementChild;
-  lastImage.onload = function () {
-    hideSpinner();
-  };
+  // const lastImage =
+  //   document.querySelector('.gallery').lastElementChild.firstElementChild
+  //     .firstElementChild;
+  // lastImage.onload = function () {
+  hideSpinner();
+  // };
 };
 
 const onLoadHomePage = () => {
