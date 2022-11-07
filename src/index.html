@@ -20,7 +20,7 @@
     <header class="head">
       <div class="section">
         <div class="head__nav">
-          <a class="head__logo" href="/">
+          <a class="head__logo" href="./index.html">
             <svg width="24" height="24">
               <use href="./svg/sprite.svg#icon-film"></use>
             </svg>
@@ -37,6 +37,7 @@
         </div>
         <form class="search-form" id="search-form">
           <input
+            class="input"
             type="text"
             name="searchQuery"
             autocomplete="off"
@@ -56,7 +57,7 @@
 
     <main>
       <!-- Карточки фильмов -->
-      <div class="gallery section"></div>
+      <ul class="gallery section"></ul>
       <!-- Пагинатор -->
       <div id="tui-pagination-container" class="tui-pagination-custom"></div>
     </main>

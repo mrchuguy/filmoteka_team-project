@@ -1,5 +1,3 @@
-import { windowScroll } from './onLoadHomePage';
-
 const goTopBtn = document.querySelector('.back-to-top');
 
 const trackScroll = () => {
@@ -11,6 +9,12 @@ const trackScroll = () => {
   }
   if (scrolled < coords) {
     goTopBtn.classList.remove('back-to-top_show');
+  }
+};
+
+const windowScroll = () => {
+  if (window.pageYOffset > 0) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 };
 
