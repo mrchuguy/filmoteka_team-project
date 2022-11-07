@@ -1,10 +1,12 @@
 const addNotify = type => {
-  const library = document.querySelector('div.library');
+  const mainPage = document.querySelector('main');
   const markup = `
   <p class="notify-lib">
     ${type} movies library is empty
   </p>`;
-  library.innerHTML = markup;
+  const notify = document.querySelector('.notify-lib');
+  if (notify) notify.remove();
+  mainPage.insertAdjacentHTML('afterbegin', markup);
 };
 
 const loadWatched = () => {
@@ -25,3 +27,5 @@ const loadQueue = () => {
 };
 
 loadWatched();
+
+export { loadWatched, loadQueue };
