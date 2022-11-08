@@ -1,11 +1,11 @@
 .backdrop__modal {
     display: none;
 }
-.backdrop__modal.is-hidden {
+.backdrop__modal.is-hidden{
     width: 100%;
     height: 100%;
     opacity: 1;
-    background: #0003;
+    background: $primary-drop-shadow-color;
     transition: opacity .25s cubic-bezier(.4, 0, .2, 1), visibility .25s cubic-bezier(.4, 0, .2, 1);
     position: fixed;
     top: 0;
@@ -24,12 +24,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 650px;
-    min-height: 610px;
-    background-color: #f7f7f7;
+    height: 610px;
+    background-color: $secondary-color-light;
     border-radius: 15px;
     box-shadow: 0px 3px 3px rgb(0 0 0 / 12%), 0px 3px 3px rgb(0 0 0 / 14%), 0px 3px 3px rgb(0 0 0 / 20%);
 }
+    @media screen and (max-width: 767px) {
+        .footer__modal {
+            width: 400px;
+            height: 510px;
+        }
+    }
 .footer__team {
+    height: 100%;
     display: flex;
 }
 .footer__list {
@@ -37,14 +44,28 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .footer__list {
+        height: 100%;
+        overflow-y: scroll;
+    }
 }
 .footer__item {
     position: relative;
-    width: 200px;
+    width: 180px;
     height: 190px;
-    background-color: #fff;
+    background-color: $primary-color-light;
     border-radius: 10%;
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 1px 1px rgb(0 0 0 / 20%);
+}
+@media screen and (max-width: 480px) {
+    .footer__modal {
+        width: 230px;
+    }
 }
 .footer__item:hover {
     box-shadow: 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 28%);
@@ -55,16 +76,16 @@
 .footer__photo {
     display: block;
     margin: 0 auto;
-    border-radius: 25%;
-    padding-top: 7px;
+    border-radius: 18%;
+    padding-top: 4px;
     width: 150px;
     height: 123px;
-    box-shadow: 0px 1px 1px rgb(0 0 0 /24%);
+    box-shadow: 2px 5px 5px rgb(0 0 0 /24%);
 }
 .footer__name {
     display: block;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
 }
 .footer__worker {
@@ -78,17 +99,17 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
     bottom: 7px;
 }
 .footer__social-circle {
 display: flex;
 justify-content: center;
 align-items: center;
-    background-color: #f7f7f7;
-    width: 48px;
-    height: 48px;
+    background-color: $secondary-color-light;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
 }
 .footer__social-circle:hover {
@@ -98,9 +119,9 @@ align-items: center;
     box-shadow: 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 28%);
 }
 .footer__social-svg {
-    width: 34px;
-    height: 34px;
-    fill: black;
+    width: 24px;
+    height: 24px;
+    fill: $primary-color;
 }
 .footer__about {
     padding-top: 10px;
@@ -117,14 +138,38 @@ align-items: center;
     align-items: center;
     width: 360px;
     height: 60px;
-    background-color: #fff;
+    background-color: $primary-color-light;
     border-radius: 15px;
-    border: solid 1px #545454;
+    border: solid 1px $accent-color-fill;
     box-shadow: 0px 1px 1px rgb(0 0 0 /24%);
     top: 45%;
     left: 25%;
+}
+@media screen and (max-width: 767px) {
+    .footer__block {
+        left: 5%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .footer__block {
+        width: 175px;
+        height: 35px;
+        border-radius: 8px;
+    }
 }
 .footer__block-title {
     text-transform: uppercase;
     font-size: 45px;
 }
+
+@media screen and (max-width: 480px) {
+    .footer__block-title {
+        font-size: 20px;
+    }
+    }
+
+    @media screen and (max-width: 480px) {
+        .footer__block {
+            left: 12%;
+        }
+    }
