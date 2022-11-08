@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -38,6 +39,19 @@ function toggleModal() {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+onAuthStateChanged(auth, user => {
+  if (auth.currentUser !== null) {
+    refs.openModalBtn.style.display = 'none';
+    document.getElementById('auth-btn-icon').style.display = 'none';
+    document.getElementById('log-out-btn').style.display = 'block';
+    document.getElementById('log-out-btn').innerHTML =
+      'USER: ' + auth.currentUser.email + '<br>LOG OUT';
+  } else {
+    refs.openModalBtn.style.display = 'inline';
+    document.getElementById('auth-btn-icon').style.display = 'inline';
+  }
+});
+
 document.getElementById('reg-btn').addEventListener('click', function () {
   document.getElementById('register-div').style.display = 'inline';
   document.getElementById('login-div').style.display = 'none';
@@ -56,13 +70,15 @@ document.getElementById('login-btn').addEventListener('click', function () {
       document.getElementById('result-box').style.display = 'inline';
       document.getElementById('login-div').style.display = 'none';
       document.getElementById('result').innerHTML =
-        'Welcome back!<br> ' + loginEmail + ' was login successfully';
+        'Welcome back!<br> ' +
+        auth.currentUser.email +
+        ' was login successfully';
       document.getElementById('result-box').style.textAlign = 'center';
       refs.openModalBtn.style.display = 'none';
       document.getElementById('auth-btn-icon').style.display = 'none';
       document.getElementById('log-out-btn').style.display = 'block';
       document.getElementById('log-out-btn').innerHTML =
-        'USER: ' + loginEmail + '<br>LOG OUT';
+        'USER: ' + auth.currentUser.email + '<br>LOG OUT';
     })
     .catch(error => {
       const errorCode = error.code;
