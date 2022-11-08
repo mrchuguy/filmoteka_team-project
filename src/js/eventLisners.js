@@ -64,5 +64,6 @@ function clickCloseModal(e) {
   e.preventDefault();
   if (e.target === refs.backdrop || e.key === 'Escape') {
     refs.backdrop.classList.toggle('is-hidden');
+    document.removeEventListener('keydown', clickCloseModal);
   }
 }
