@@ -16,6 +16,8 @@ const refs = {
   modal: document.querySelector('.modal-info'),
   backdrop: document.querySelector('.backdrop-info'),
   modalBtnClose: document.querySelector('.material-icons'),
+  teamBtn: document.querySelector('.modal__open'),
+  modalTeam: document.querySelector('.backdrop__modal'),
 };
 //-----------------------------------------//
 let searchValue = '';
@@ -27,6 +29,7 @@ refs.searchBtn.addEventListener('click', submitSearch);
 refs.gallery.addEventListener('click', onGalleryCard);
 refs.backdrop.addEventListener('click', clickCloseModal);
 refs.modalBtnClose.addEventListener('click', modalClose);
+refs.teamBtn.addEventListener('click', footerOpen);
 
 //-------------Functions----------------------//
 
@@ -57,6 +60,7 @@ function onGalleryCard(event) {
 function modalClose(e) {
   console.log(e);
   e.preventDefault();
+  document.removeEventListener('keydown', clickCloseModal);
   refs.backdrop.classList.toggle('is-hidden');
 }
 
@@ -66,4 +70,9 @@ function clickCloseModal(e) {
     refs.backdrop.classList.toggle('is-hidden');
     document.removeEventListener('keydown', clickCloseModal);
   }
+}
+
+function footerOpen(e) {
+  e.preventDefault();
+  refs.modalTeam.classList.toggle('is-hidden');
 }
