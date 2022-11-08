@@ -2,6 +2,7 @@
 import { notifyOptions, WARNING_MESSAGE } from './notifyOptions';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import onLoadSearchPage from './onLoadHomePage';
+import loadModalInfo from './loadModalInfo';
 
 //-----refs------///
 
@@ -48,6 +49,8 @@ function onGalleryCard(event) {
   if (event.target.parentNode.parentNode.parentNode.tagName !== 'LI') {
     return;
   }
+  loadModalInfo(event.target.parentNode.parentNode.parentNode.dataset.id);
+
   refs.modal.classList.toggle('is-hidden');
 }
 
