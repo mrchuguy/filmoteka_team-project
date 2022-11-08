@@ -46,12 +46,11 @@ function submitSearch(event) {
 
 function onGalleryCard(event) {
   event.preventDefault();
-  console.log(event.target.parentNode.parentNode.parentNode.dataset.id);
+  document.addEventListener('keydown', clickCloseModal);
   if (event.target.parentNode.parentNode.parentNode.tagName !== 'LI') {
     return;
   }
   loadModalInfo(event.target.parentNode.parentNode.parentNode.dataset.id);
-
   refs.backdrop.classList.toggle('is-hidden');
 }
 
@@ -62,7 +61,8 @@ function modalClose(e) {
 }
 
 function clickCloseModal(e) {
-  if (e.target === refs.backdrop) {
+  e.preventDefault();
+  if (e.target === refs.backdrop || e.key === 'Escape') {
     refs.backdrop.classList.toggle('is-hidden');
   }
 }
