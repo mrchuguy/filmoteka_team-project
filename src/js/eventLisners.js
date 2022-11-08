@@ -13,8 +13,9 @@ const refs = {
   queueBtn: document.querySelector('.queue'),
   gallery: document.querySelector('.gallery'),
   filmCard: document.querySelectorAll('.photo-card'),
-  modal: document.querySelector('.backdrop-info'),
-  modalBtnClose: document.querySelector('.modal__btn-close'),
+  modal: document.querySelector('.modal-info'),
+  backdrop: document.querySelector('.backdrop-info'),
+  modalBtnClose: document.querySelector('.material-icons'),
 };
 //-----------------------------------------//
 let searchValue = '';
@@ -24,7 +25,7 @@ let searchValue = '';
 refs.searchInput.addEventListener('input', inputValue);
 refs.searchBtn.addEventListener('click', submitSearch);
 refs.gallery.addEventListener('click', onGalleryCard);
-
+refs.backdrop.addEventListener('click', clickCloseModal);
 refs.modalBtnClose.addEventListener('click', modalClose);
 
 //-------------Functions----------------------//
@@ -45,16 +46,24 @@ function submitSearch(event) {
 
 function onGalleryCard(event) {
   event.preventDefault();
-  console.log(event.target.parentNode.parentNode.parentNode.dataset.id);
+  document.addEventListener('keydown', clickCloseModal);
   if (event.target.parentNode.parentNode.parentNode.tagName !== 'LI') {
     return;
   }
   loadModalInfo(event.target.parentNode.parentNode.parentNode.dataset.id);
-
-  refs.modal.classList.toggle('is-hidden');
+  refs.backdrop.classList.toggle('is-hidden');
 }
 
 function modalClose(e) {
+  console.log(e);
   e.preventDefault();
-  refs.modal.classList.toggle('is-hidden');
+  refs.backdrop.classList.toggle('is-hidden');
+}
+
+function clickCloseModal(e) {
+  e.preventDefault();
+  if (e.target === refs.backdrop || e.key === 'Escape') {
+    refs.backdrop.classList.toggle('is-hidden');
+    document.removeEventListener('keydown', clickCloseModal);
+  }
 }
