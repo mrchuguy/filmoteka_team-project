@@ -6,7 +6,6 @@
   top: 0;
   left: 0;
   opacity: 1;
-  overflow-y: scroll;
   transition: opacity $anim-dur $anim-func, visibility $anim-dur $anim-func;
 }
 
@@ -17,17 +16,31 @@
 }
 
 .modal-info {
-  width: 806px;
-  min-height: 558px;
+  width: 280px;
+  height: 940px;
+  padding: 48px 20px 40px 20px;
+
   background-color: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  padding: 40px 12px;
+
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 552px;
+    display: flex;
+    padding: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 806px;
+    min-height: 558px;
+    padding: 40px 12px;
+  }
 }
 
 .modal__btn-close {
@@ -52,18 +65,103 @@
   transform: rotate(90deg);
 }
 
+.img-thumb {
+  min-width: 240px;
+  height: 357px;
+  @media screen and (min-width: 768px) {
+    min-width: 264px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-width: 375px;
+    height: 478px;
+  }
+}
+
+.modal_img {
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  object-fit: cover;
+}
+.modal_info {
+  // width: 100%;
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 16px;
+  }
+}
+.modal_title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  color: #000000;
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 30px;
+    line-height: 1.17;
+  }
+}
+.modal_detail {
+  margin-top: 20px;
+}
+
 .modal_detail-ul {
   list-style: none;
   display: flex;
 }
 .modal_detail-ul1 {
   list-style: none;
+  width: 150px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #8c8c8c;
 }
 .modal_detail-ul2 {
   list-style: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  // display: flex;
+  align-items: center;
+  color: #000000;
+}
+.modal_detail-ul1-li:not(:last-child),
+.modal_detail-ul2-li:not(:last-child) {
+  margin-bottom: 8px;
+}
+.modal_detail-ul2-li span {
+  width: 36px;
+  height: 16px;
+  background: #ff6b01;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 1px 9px;
 }
 .modal_about {
-  height: 154px;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: #000000;
+}
+.modal_about-text {
+  min-height: 154px;
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+  color: #000000;
 }
 button {
   cursor: pointer;
@@ -78,15 +176,15 @@ button {
 }
 .modal_button {
   display: flex;
+  margin-top: 20px;
 }
 .btn:focus {
   background: #ff6b01;
   border: 1px solid #ffffff;
 }
 .button-watch {
-  margin-left: 8px;
-  padding-top: 14px;
-  padding-bottom: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -94,9 +192,17 @@ button {
   text-align: center;
   text-transform: uppercase;
   color: #000000;
+  @media screen and (min-width: 768px) {
+    padding-top: 14px;
+    padding-bottom: 12px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 8px;
+  }
 }
 .button-queue {
-  margin-left: 15px;
+  margin-left: 20px;
   padding-top: 14px;
   padding-bottom: 12px;
   font-weight: 500;
@@ -106,7 +212,15 @@ button {
   text-align: center;
   text-transform: uppercase;
   color: #000000;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 15px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
 }
+
 .button-watch:focus,
 .button-queue:focus {
   color: #ffffff;
