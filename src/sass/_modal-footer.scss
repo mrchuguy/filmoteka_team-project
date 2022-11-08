@@ -1,6 +1,4 @@
-.backdrop__modal {
-    display: none;
-}
+
 .backdrop__modal.is-hidden{
     width: 100%;
     height: 100%;
@@ -12,9 +10,7 @@
     left: 0;
     overflow-y: scroll;
 }
-.footer__modal {
-    display: none;
-}
+
 .footer__modal.is-hidden {
     display: flex;
     justify-content: center;
@@ -125,9 +121,6 @@ align-items: center;
 }
 .footer__about {
     padding-top: 10px;
-}
-.footer__block {
-    display: none;
 }
 .footer__block.is-hidden {
     position: absolute;
