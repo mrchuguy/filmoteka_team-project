@@ -11,6 +11,7 @@
 }
 
 .auth-btn {
+  display: none;
   cursor: pointer;
   font-family: $main-font;
   font-size: 14px;
@@ -21,10 +22,14 @@
 }
 
 .auth-btn-icon {
+  display: none;
   height: 15px;
   width: 15px;
 }
 
+.head__library {
+  position: relative;
+}
 // -------
 
 .login-title {
