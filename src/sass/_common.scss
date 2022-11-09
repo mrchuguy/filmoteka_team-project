@@ -52,3 +52,15 @@ img {
   opacity: 0;
   pointer-events: none;
 }
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -100;
+  background-image: url(../jpg/back.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ebebeb;
+}
