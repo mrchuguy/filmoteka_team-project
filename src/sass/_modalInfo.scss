@@ -6,15 +6,7 @@
   top: 0;
   left: 0;
   opacity: 1;
-  transition: opacity $anim-dur $anim-func, visibility $anim-dur $anim-func;
-}
-
-.backdrop-info body {
-  overflow-y: hidden;
-}
-
-.backdrop-info.is-hidden body {
-  overflow-y: auto;
+  transition: opacity $anim-dur, visibility $anim-dur $anim-func;
 }
 
 .is-hidden {
@@ -217,18 +209,7 @@ button {
   top: 553px;
   border: 1px solid #000000;
   border-radius: 5px;
-}
-.modal_button {
-  display: flex;
-  margin-top: 20px;
-}
-.btn:focus {
-  background: #ff6b01;
-  border: 1px solid #ffffff;
-}
-.button-watch {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  background: #ffffff;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -236,6 +217,15 @@ button {
   text-align: center;
   text-transform: uppercase;
   color: #000000;
+}
+.modal_button {
+  display: flex;
+  margin-top: 20px;
+}
+
+.button-watch {
+  padding-top: 8px;
+  padding-bottom: 8px;
   @media screen and (min-width: 768px) {
     padding-top: 14px;
     padding-bottom: 12px;
@@ -249,13 +239,6 @@ button {
   margin-left: 20px;
   padding-top: 14px;
   padding-bottom: 12px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  align-items: center;
-  text-align: center;
-  text-transform: uppercase;
-  color: #000000;
 
   @media screen and (min-width: 768px) {
     margin-left: 15px;
@@ -265,7 +248,55 @@ button {
   }
 }
 
-.button-watch:focus,
-.button-queue:focus {
-  color: #ffffff;
+.button-watch,
+.button-queue {
+  &[data-type='add']:hover,
+  &[data-type='add']:focus {
+    background: #ff6b01;
+    border: 1px solid #ffffff;
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  &[data-type='delete'] {
+    background: #ff6b01;
+    border: 1px solid #ffffff;
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  &[data-type='delete']:hover,
+  &[data-type='delete']:focus {
+    background: #ffffff;
+    border: 1px solid #000;
+    color: #000000;
+  }
+}
+
+.button-watch,
+.button-queue {
+  &[data-type='delete']:hover::before,
+  &[data-type='delete']:focus::before {
+    content: 'delete';
+  }
+}
+
+.button-watch {
+  &[data-type='add']::before {
+    content: 'add to wathed';
+  }
+
+  &[data-type='delete']::before {
+    content: 'in watched';
+  }
+}
+
+.button-queue {
+  &[data-type='add']::before {
+    content: 'add to queue';
+  }
+
+  &[data-type='delete']::before {
+    content: 'in queue';
+  }
 }

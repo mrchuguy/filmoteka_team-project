@@ -37,12 +37,12 @@ export function renderFilmsModalPage(film) {
       <p class="modal_about">About</p>
       <p class="modal_about-text">${film.overview}</p>
       <div class="modal_button">
-        <button type="button" class="button-watch btn">
-          ADD TO WATCHED
-        </button>
-        <button type="button" class="button-queue btn">
-          ADD TO QUEUE
-        </button>
+        <button type="button" class="button-watch btn" data-type data-id="${
+          film.id
+        }"></button>
+        <button type="button" class="button-queue btn" data-type data-id="${
+          film.id
+        }"></button>
       </div>
     </div>`;
 
@@ -51,27 +51,4 @@ export function renderFilmsModalPage(film) {
     if (i > 0) childArr[i].remove();
   }
   modalInfo.insertAdjacentHTML('beforeend', modalMarkup);
-}
-
-{
-  /* <ul class="modal_detail-ul">
-  <li>
-    <ul class="modal_detail-ul1">
-      <li class="modal_detail-ul1-li">Vote / Votes</li>
-      <li class="modal_detail-ul1-li">Popularity</li>
-      <li class="modal_detail-ul1-li">Original Title</li>
-      <li class="modal_detail-ul1-li">Genre</li>
-    </ul>
-  </li>
-  <li>
-    <ul class="modal_detail-ul2">
-      <li class="modal_detail-ul2-li">
-        <span>${film.vote_average}</span> / ${film.vote_count}
-      </li>
-      <li class="modal_detail-ul2-li">${film.popularity}</li>
-      <li class="modal_detail-ul2-li">${film.original_title}</li>
-      <li class="modal_detail-ul2-li">${film.genres.name}</li>
-    </ul>
-  </li>
-</ul>; */
 }
