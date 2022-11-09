@@ -1,22 +1,47 @@
 import ApiService from './fetch-api';
 import { spinnerToggle, hideSpinner } from './spinner';
 import { renderFilmsModalPage } from './modalInfo';
+import { checkMovieInStorage, saveMovie, deleteMovie } from './local-storage';
 
 const infoMovieApi = new ApiService();
 let watchedBtn = null;
 let queueBtn = null;
 
 const checkLocalSrorage = id => {
-  //checkMovieInStorage("WATCHED", id);
-  if (true) {
+  if (checkMovieInStorage('WATCHED', id)) {
     watchedBtn.dataset.type = 'delete';
   } else {
     watchedBtn.dataset.type = 'add';
   }
-  //checkMovieInStorage("QUEUE", id);
-  if (true) {
+  if (checkMovieInStorage('QUEUE', id)) {
     queueBtn.dataset.type = 'delete';
   } else {
+    queueBtn.dataset.type = 'add';
+  }
+};
+
+const watchedBtnHandler = () => {
+  const type = watchedBtn.dataset.type;
+  if (type === 'add') {
+    infoMovieApi.findById(watchedBtn.dataset.id).then(response => {
+      saveMovie('WATCHED', response.data);
+    });
+    watchedBtn.dataset.type = 'delete';
+  } else {
+    deleteMovie('WATCHED', watchedBtn.dataset.id);
+    watchedBtn.dataset.type = 'add';
+  }
+};
+
+const queueBtnHandler = () => {
+  const type = queueBtn.dataset.type;
+  if (type === 'add') {
+    infoMovieApi.findById(queueBtn.dataset.id).then(response => {
+      saveMovie('QUEUE', response.data);
+    });
+    queueBtn.dataset.type = 'delete';
+  } else {
+    deleteMovie('QUEUE', queueBtn.dataset.id);
     queueBtn.dataset.type = 'add';
   }
 };
@@ -29,8 +54,11 @@ const loadModalInfo = id => {
     watchedBtn = document.querySelector('.button-watch');
     queueBtn = document.querySelector('.button-queue');
     //перевірка на присутність фільму у сховищі (назначення data-type)
-    checkLocalSrorage();
+    checkLocalSrorage(response.data.id);
     //навішування слухача подій
+    watchedBtn.addEventListener('click', watchedBtnHandler);
+    queueBtn.addEventListener('click', queueBtnHandler);
+
     hideSpinner();
   });
 };

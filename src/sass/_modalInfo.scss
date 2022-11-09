@@ -250,8 +250,7 @@ button {
 
 .button-watch,
 .button-queue {
-  &[data-type='add']:hover,
-  &[data-type='add']:focus {
+  &[data-type='add']:hover {
     background: #ff6b01;
     border: 1px solid #ffffff;
     font-weight: 500;
@@ -265,8 +264,7 @@ button {
     color: #ffffff;
   }
 
-  &[data-type='delete']:hover,
-  &[data-type='delete']:focus {
+  &[data-type='delete']:hover {
     background: #ffffff;
     border: 1px solid #000;
     color: #000000;
@@ -275,8 +273,7 @@ button {
 
 .button-watch,
 .button-queue {
-  &[data-type='delete']:hover::before,
-  &[data-type='delete']:focus::before {
+  &[data-type='delete']:hover::before {
     content: 'delete';
   }
 }
