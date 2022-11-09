@@ -1,8 +1,6 @@
-<div class="backdrop is-hidden" data-modal>
+<div class="backdrop-auth is-hidden" data-auth-modal>
   <div class="center-box" id="login-div">
-    <button type="button" class="modal__button-close" data-login-close>
-      X
-    </button>
+    <button type="button" class="modal__auth-close" data-login-close></button>
     <h2 class="login-title">Login</h2>
     <input
       type="email"
@@ -26,9 +24,11 @@
     <button id="reg-btn" class="an-btn">don't have an account? REGISTER</button>
   </div>
   <div class="center-box" id="register-div">
-    <button type="button" class="modal__button-close" data-register-close>
-      X
-    </button>
+    <button
+      type="button"
+      class="modal__auth-close"
+      data-register-close
+    ></button>
     <h2 class="login-title">Register</h2>
     <input
       type="email"
@@ -52,9 +52,7 @@
     <button id="log-btn" class="an-btn">have an account? LOGIN</button>
   </div>
   <div id="result-box">
-    <button type="button" class="modal__button-close" data-result-close>
-      X
-    </button>
+    <button type="button" class="modal__auth-close" data-result-close></button>
     <h3 id="result"></h3>
     <br />
   </div>
