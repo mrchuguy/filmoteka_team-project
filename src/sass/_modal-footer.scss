@@ -11,7 +11,7 @@
     overflow-y: scroll;
 }
 
-.footer__modal.is-hidden {
+.footer__modal {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -122,7 +122,7 @@ align-items: center;
 .footer__about {
     padding-top: 10px;
 }
-.footer__block.is-hidden {
+.footer__block{
     position: absolute;
     z-index: 2;
     top: 100%;
