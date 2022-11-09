@@ -22,6 +22,7 @@ const refs = {
   modalBtnClose: document.querySelector('.material-icons'),
   teamBtn: document.querySelector('.modal__open'),
   modalTeam: document.querySelector('.backdrop__modal'),
+  teamName: document.querySelector('.footer__block'),
 };
 //-----------------------------------------//
 let searchValue = '';
@@ -83,4 +84,8 @@ function clickCloseModal(e) {
 function footerOpen(e) {
   e.preventDefault();
   refs.modalTeam.classList.toggle('is-hidden');
+  refs.body.style.overflow = 'hidden';
+  setTimeout(() => {
+    refs.teamName.classList.toggle('is-hidden');
+  }, 600);
 }
