@@ -22,6 +22,7 @@ const checkLocalSrorage = id => {
 
 const watchedBtnHandler = () => {
   const type = watchedBtn.dataset.type;
+  watchedBtn.blur();
   if (type === 'add') {
     infoMovieApi.findById(watchedBtn.dataset.id).then(response => {
       saveMovie('WATCHED', response.data);
@@ -35,6 +36,7 @@ const watchedBtnHandler = () => {
 
 const queueBtnHandler = () => {
   const type = queueBtn.dataset.type;
+  queueBtn.blur();
   if (type === 'add') {
     infoMovieApi.findById(queueBtn.dataset.id).then(response => {
       saveMovie('QUEUE', response.data);

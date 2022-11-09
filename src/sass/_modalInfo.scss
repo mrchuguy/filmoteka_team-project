@@ -250,7 +250,8 @@ button {
 
 .button-watch,
 .button-queue {
-  &[data-type='add']:hover {
+  &[data-type='add']:hover,
+  &[data-type='add']:focus {
     background: #ff6b01;
     border: 1px solid #ffffff;
     font-weight: 500;
@@ -264,7 +265,8 @@ button {
     color: #ffffff;
   }
 
-  &[data-type='delete']:hover {
+  &[data-type='delete']:hover,
+  &[data-type='delete']:focus {
     background: #ffffff;
     border: 1px solid #000;
     color: #000000;
