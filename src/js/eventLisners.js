@@ -3,10 +3,7 @@ import { notifyOptions, WARNING_MESSAGE } from './notifyOptions';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import onLoadSearchPage from './onLoadHomePage';
 import loadModalInfo from './loadModalInfo';
-import { WATCHED } from './local-storage';
-import { QUEUE } from './local-storage';
-import { saveMovie } from './local-storage';
-import { loadMovie } from './local-storage';
+
 //-----refs------///
 
 const refs = {
@@ -21,7 +18,8 @@ const refs = {
   backdrop: document.querySelector('.backdrop-info'),
   modalBtnClose: document.querySelector('.material-icons'),
   teamBtn: document.querySelector('.modal__open'),
-  modalTeam: document.querySelector('.backdrop__modal'),
+  teamBackdrop: document.querySelector('.backdrop__modal'),
+  teamModalCloseBtn: document.querySelector('.footer__modal-icons'),
   teamName: document.querySelector('.footer__block'),
 };
 //-----------------------------------------//
@@ -35,6 +33,7 @@ refs.gallery.addEventListener('click', onGalleryCard);
 refs.backdrop.addEventListener('click', clickCloseModal);
 refs.modalBtnClose.addEventListener('click', modalClose);
 refs.teamBtn.addEventListener('click', footerOpen);
+refs.teamModalCloseBtn.addEventListener('click', modalClose);
 
 //-------------Functions----------------------//
 
@@ -55,11 +54,11 @@ function submitSearch(event) {
 function onGalleryCard(event) {
   event.preventDefault();
   const id = event.target.parentNode.parentNode.parentNode.dataset.id;
-  document.addEventListener('keydown', clickCloseModal);
   if (event.target.parentNode.parentNode.parentNode.tagName !== 'LI') {
     return;
   }
   loadModalInfo(id);
+  document.addEventListener('keydown', clickCloseModal);
   refs.backdrop.classList.toggle('is-hidden');
   refs.body.style.overflow = 'hidden';
 }
@@ -67,12 +66,20 @@ function onGalleryCard(event) {
 function modalClose(e) {
   console.log(e);
   e.preventDefault();
-  document.removeEventListener('keydown', clickCloseModal);
-  refs.backdrop.classList.toggle('is-hidden');
-  refs.body.style.overflow = 'visible';
+  if (e.target === refs.modalBtnClose) {
+    document.removeEventListener('keydown', clickCloseModal);
+    refs.backdrop.classList.toggle('is-hidden');
+    refs.body.style.overflow = 'visible';
+  } else if (e.target === refs.teamModalCloseBtn) {
+    document.removeEventListener('keydown', footerClose);
+    refs.teamBackdrop.classList.toggle('is-hidden');
+    refs.body.style.overflow = 'visible';
+    refs.teamName.classList.toggle('is-hidden');
+  }
 }
 
 function clickCloseModal(e) {
+  console.log(e);
   e.preventDefault();
   if (e.target === refs.backdrop || e.key === 'Escape') {
     refs.backdrop.classList.toggle('is-hidden');
@@ -83,9 +90,22 @@ function clickCloseModal(e) {
 
 function footerOpen(e) {
   e.preventDefault();
-  refs.modalTeam.classList.toggle('is-hidden');
+  document.addEventListener('keydown', footerClose);
+  refs.teamBackdrop.classList.toggle('is-hidden');
   refs.body.style.overflow = 'hidden';
   setTimeout(() => {
     refs.teamName.classList.toggle('is-hidden');
   }, 600);
+  refs.teamBackdrop.addEventListener('click', footerClose);
+}
+
+function footerClose(e) {
+  e.preventDefault();
+  if (e.target === refs.teamBackdrop || e.key === 'Escape') {
+    refs.teamBackdrop.classList.toggle('is-hidden');
+    document.removeEventListener('keydown', footerClose);
+    refs.teamName.classList.toggle('is-hidden');
+    refs.teamBackdrop.removeEventListener('click', footerClose);
+  }
+  refs.body.style.overflow = 'visible';
 }
