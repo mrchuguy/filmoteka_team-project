@@ -1,74 +1,68 @@
-export const WATCHED = "watched"
-export const QUEUE = "queue"
 
 
-//у функцію передаємо першим парметром - ID фільму, 
-//другим - ОБЄКТ сам фільм, 
-//третім - константу потрібного списку або watched або queue
-export function saveMovie(key, value, constName) {
+export function saveMovie(key, value) {
   try {
-    value.list=constName
-    const serializedState = JSON.stringify(value);
-    localStorage.setItem(key, serializedState );
+    let getList = localStorage.getItem(key);
+    let movie = JSON.stringify(value);
+    if (getList === null || !getList || getList ==="[]"){ 
+      getList = `[${movie}]`
+    } 
+    else {
+      getList = `${getList.slice(0, -1)}, ${movie}]`
+    }
+    localStorage.setItem(key, getList );
   } catch (error) {
     console.error("Set state error: ", error.message);
   }
 };
 
-export function loadMovie (key){
+
+ export function loadAllMovie(key) {
+   try {
+     getList = localStorage.getItem(key);
+     getList = JSON.parse(getList);
+  } catch (error) {
+     console.error("Get state error: ", error.message);
+  }
+};
+
+
+ 
+
+export function checkMovieInStorage(key, id){
   try {
-    const serializedState = localStorage.getItem(key);
-    return serializedState === null ? undefined : JSON.parse(serializedState);
+    let getList = localStorage.getItem(key);
+    getList = JSON.parse(getList);
+    return getList.some(item => item.id === id)   
   } catch (error) {
     console.error("Get state error: ", error.message);
   }
 };
 
-//у функцію передаємо - константу потрібного списку або WATCHED  або QUEUE
-// ретурн відфільтрований масив об`єктів, в залежності, що передали аргументом
-//в constName, це або переглянуті або в фільми черзі
 
-export function loadAllMovie(constName) {
- let arrayMovie = []
+
+ export function loadMovie (key, id){
   try {
-   for(let key in localStorage) 
-   {
-     if (!localStorage.hasOwnProperty(key)) 
-
-     { continue; }
-     let serializedState = localStorage.getItem(key);
-     serializedState = JSON.parse(serializedState);
-     if (serializedState.list===constName) {
-       arrayMovie.push(serializedState)
-     }
-   }
-return arrayMovie  
-  } catch (error) {
+    let getList = localStorage.getItem(key);
+    getList = JSON.parse(getList);
+   return getList.find(item => item.id === id)
+    }
+   catch (error) {
     console.error("Get state error: ", error.message);
   }
 };
 
-// функція перевіряє за ID фільму наявність або відсутність фільму в локал сторедж
-// функція повертає 3 варіанти відповіді
-// варіант 1 повертає фолс коли фільму немає в watched і немає в queue
-// варіант 2 повертає watched  - фільм з таким ID знайдений у списку watched
-// варіант 3 повертає queue
+ 
 
-export function checkMovieInStorage(ID){
-  try {
-    let result = false
-   for(let key in localStorage) 
-   {
-     if (!localStorage.hasOwnProperty(key)) 
-     { continue; }
-     let serializedState = localStorage.getItem(key);
-     serializedState = JSON.parse(serializedState);
-     if (serializedState.id === ID) {
-      result = serializedState.list
-     }
-   }
- return result
-  } catch (error) {
+ export function deleteMovie (key, id){
+   try {
+    let getList = localStorage.getItem(key);
+    getList = JSON.parse(getList);
+    let newList =  getList.filter(item => item.id !== id)
+    newList = JSON.stringify(newList); 
+    newList = `${newList}`
+    localStorage.setItem(key, newList);  
+    }catch (error) {
     console.error("Get state error: ", error.message);
   }
 };
