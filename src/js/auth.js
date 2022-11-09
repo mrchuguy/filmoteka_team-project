@@ -21,7 +21,7 @@ const refs = {
   closeLoginBtn: document.querySelector('[data-login-close]'),
   closeRegBtn: document.querySelector('[data-register-close]'),
   closeResultBtn: document.querySelector('[data-result-close]'),
-  modal: document.querySelector('[data-modal]'),
+  modal: document.querySelector('[data-auth-modal]'),
 };
 
 refs.openModalBtn.addEventListener('click', toggleModal);

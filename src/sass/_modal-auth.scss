@@ -1,4 +1,4 @@
-.backdrop {
+.backdrop-auth {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,40 +9,8 @@
   transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// .is-hidden {
-//   opacity: 0;
-//   pointer-events: none;
-// }
-
 .is-hidden .center-box {
   transform: translate(-50%, -50%) scale(0.5);
-}
-
-.modal__button-close {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-  padding: 0px;
-  margin: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  background-color: white;
-  cursor: pointer;
-  color: black;
-  &:hover {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    color: rgba(255, 107, 1, 1);
-  }
-}
-
-.login-title {
-  font-size: 30px;
-  font-weight: 500;
 }
 
 .center-box {
@@ -61,6 +29,34 @@
   z-index: 4;
   transform: translate(-50%, -50%) scale(1);
   transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__auth-close {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-color: white;
+  background: url(../images/close.svg) no-repeat;
+  cursor: pointer;
+  color: black;
+  transition: transform 0.3s;
+  &:hover {
+    transform: rotate(90deg);
+  }
+}
+
+.login-title {
+  font-size: 30px;
+  font-weight: 500;
 }
 
 .text-field {
