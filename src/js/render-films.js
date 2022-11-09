@@ -13,7 +13,9 @@ export function renderFilmsOnHomePage(films) {
         `<li class="gallery__item" data-id="${film.id}">
               <a class="gallery__link" href="">
                 <div class="gallery__link--wrap">
-                  <img class="gallery__overlay" src=${nullOrNot(film.poster_path)}
+                  <img class="gallery__overlay" src=${nullOrNot(
+                    film.poster_path
+                  )}
                    alt="${film.title}" loading="lazy"  />
                 </div>
                 <div class="info">
@@ -59,10 +61,9 @@ export function renderFilmsOnLibraryPage(films) {
   galleryContainerLibrary.insertAdjacentHTML('beforeend', markup);
 }
 
-
 function nullOrNot(pic) {
   if (pic === null) {
-    return 'https://i.pinimg.com/originals/26/5b/5a/265b5a98f3129dd07d3d4a4b517efc8c.png';
+    return 'https://billuchi.com/wp-content/themes/barberry/images/placeholder.jpg';
   } else {
     return `https://image.tmdb.org/t/p/w500${pic}`;
   }
