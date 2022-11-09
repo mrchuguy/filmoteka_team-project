@@ -175,3 +175,37 @@
 .modal__open {
   cursor: pointer;
 }
+
+.footer__modal-btn {
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: transform 0.3s;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.footer__modal-icons {
+  display: block;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.footer__modal-btn:hover {
+  transform: rotate(90deg);
+}
