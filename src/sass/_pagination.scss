@@ -1,5 +1,6 @@
 .tui-pagination-custom {
   display: flex;
+  gap: 10px;
   align-items: center;
   justify-content: center;
 
@@ -117,7 +118,9 @@
     overflow: hidden;
   }
   .tui-page-btn-custom.tui-next,
-  .tui-page-btn-custom.tui-prev {
+  .tui-page-btn-custom.tui-prev,
+  .tui-page-btn-custom.tui-first,
+  .tui-page-btn-custom.tui-last {
     background-color: $secondary-color-light;
   }
   .tui-ico-next {
@@ -128,24 +131,23 @@
     background: url(/src/images/arrow-left.svg) no-repeat 0 0;
   }
 
+  .tui-ico-first {
+    background: url(/src/images/d-arrow-left.svg) no-repeat 0 0;
+  }
+
+  .tui-ico-last {
+    background: url(/src/images/d-arrow-right.svg) no-repeat 0 0;
+  }
+
   .tui-prev-is-ellip,
   .tui-next-is-ellip {
     padding: 0;
     line-height: 1;
   }
 
-  .tui-prev {
-    margin-right: 10px;
-  }
-
-  .tui-next {
-    margin-left: 10px;
-  }
-
   .tui-ico-first {
-    width: 11px;
-    height: 10px;
-    background-position: 0px 0px;
+    width: 16px;
+    height: 16px;
   }
 
   .tui-ico-prev {
@@ -159,9 +161,8 @@
   }
 
   .tui-ico-last {
-    width: 11px;
-    height: 10px;
-    background-position: 0px -12px;
+    width: 16px;
+    height: 16px;
   }
 
   .tui-ico-ellip {
