@@ -3,14 +3,18 @@ import { notifyOptions, WARNING_MESSAGE } from './notifyOptions';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import onLoadSearchPage from './onLoadHomePage';
 import loadModalInfo from './loadModalInfo';
-
+import { WATCHED } from './local-storage';
+import { QUEUE } from './local-storage';
+import { saveMovie } from './local-storage';
+import { loadMovie } from './local-storage';
 //-----refs------///
 
 const refs = {
+  body: document.querySelector('body'),
   searchInput: document.querySelector('input'),
   searchBtn: document.querySelector('.submit-button'),
-  watchedBtn: document.querySelector('.watched'),
-  queueBtn: document.querySelector('.queue'),
+  watchedBtn: document.querySelector('.button-watch'),
+  queueBtn: document.querySelector('.button-queue'),
   gallery: document.querySelector('.gallery'),
   filmCard: document.querySelectorAll('.photo-card'),
   modal: document.querySelector('.modal-info'),
@@ -49,12 +53,14 @@ function submitSearch(event) {
 
 function onGalleryCard(event) {
   event.preventDefault();
+  const id = event.target.parentNode.parentNode.parentNode.dataset.id;
   document.addEventListener('keydown', clickCloseModal);
   if (event.target.parentNode.parentNode.parentNode.tagName !== 'LI') {
     return;
   }
-  loadModalInfo(event.target.parentNode.parentNode.parentNode.dataset.id);
+  loadModalInfo(id);
   refs.backdrop.classList.toggle('is-hidden');
+  refs.body.style.overflow = 'hidden';
 }
 
 function modalClose(e) {
@@ -62,6 +68,7 @@ function modalClose(e) {
   e.preventDefault();
   document.removeEventListener('keydown', clickCloseModal);
   refs.backdrop.classList.toggle('is-hidden');
+  refs.body.style.overflow = 'visible';
 }
 
 function clickCloseModal(e) {
@@ -69,6 +76,7 @@ function clickCloseModal(e) {
   if (e.target === refs.backdrop || e.key === 'Escape') {
     refs.backdrop.classList.toggle('is-hidden');
     document.removeEventListener('keydown', clickCloseModal);
+    refs.body.style.overflow = 'visible';
   }
 }
 
