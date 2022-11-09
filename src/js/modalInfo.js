@@ -11,24 +11,28 @@ export function renderFilmsModalPage(film) {
     <div class="modal_info">
       <h2 class="modal_title">${film.title}</h2>
       <div class="modal_detail">
-      <ul class="modal_detail-ul">
-  <li>
-<ul class="modal_detail-ul1">
-<li class="modal_detail-ul1-li">Vote / Votes</li>
-<li class="modal_detail-ul1-li">Popularity</li>
-<li class="modal_detail-ul1-li">Original Title</li>
-<li class="modal_detail-ul1-li">Genre</li>
-</ul>
-  </li>
-  <li>
-  <ul class="modal_detail-ul2">
-  <li class="modal_detail-ul2-li"><span>${film.vote_average}</span> / ${film.vote_count}</li>
-  <li class="modal_detail-ul2-li">${film.popularity}</li>
-  <li class="modal_detail-ul2-li">${film.original_title}</li>
-  <li class="modal_detail-ul2-li">${film.genres.name}</li>
-</ul>
-</li>
-</ul>
+      <ul class="modal__movie-info">
+      <li class="movie__info-item">
+        <span class="movie__info-title">Vote / Votes</span><span class="movie__info-data"><span class="votes__colored">${
+          film.vote_average
+        }</span><span class="vote__divide">/</span> ${film.vote_count}</span>
+      </li>
+      <li class="movie__info-item">
+        <span class="movie__info-title">Popularity</span><span class="movie__info-data">${
+          film.popularity
+        }</span>
+      </li>
+      <li class="movie__info-item">
+        <span class="movie__info-title">Original Title</span><span class="movie__info-data original-title">${
+          film.original_title
+        }</span>
+      </li> 
+      <li class="movie__info-item">
+        <span class="movie__info-title">Genre</span><span class="movie__info-data">${film.genres
+          .map(genre => genre.name)
+          .join(', ')}</span>
+      </li>
+    </ul>
       </div>
       <p class="modal_about">About</p>
       <p class="modal_about-text">${film.overview}</p>
@@ -47,4 +51,27 @@ export function renderFilmsModalPage(film) {
     if (i > 0) childArr[i].remove();
   }
   modalInfo.insertAdjacentHTML('beforeend', modalMarkup);
+}
+
+{
+  /* <ul class="modal_detail-ul">
+  <li>
+    <ul class="modal_detail-ul1">
+      <li class="modal_detail-ul1-li">Vote / Votes</li>
+      <li class="modal_detail-ul1-li">Popularity</li>
+      <li class="modal_detail-ul1-li">Original Title</li>
+      <li class="modal_detail-ul1-li">Genre</li>
+    </ul>
+  </li>
+  <li>
+    <ul class="modal_detail-ul2">
+      <li class="modal_detail-ul2-li">
+        <span>${film.vote_average}</span> / ${film.vote_count}
+      </li>
+      <li class="modal_detail-ul2-li">${film.popularity}</li>
+      <li class="modal_detail-ul2-li">${film.original_title}</li>
+      <li class="modal_detail-ul2-li">${film.genres.name}</li>
+    </ul>
+  </li>
+</ul>; */
 }

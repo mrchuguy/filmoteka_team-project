@@ -9,6 +9,14 @@
   transition: opacity $anim-dur $anim-func, visibility $anim-dur $anim-func;
 }
 
+.backdrop-info body {
+  overflow-y: hidden;
+}
+
+.backdrop-info.is-hidden body {
+  overflow-y: auto;
+}
+
 .is-hidden {
   opacity: 0;
   pointer-events: none;
@@ -16,18 +24,22 @@
 }
 
 .modal-info {
-  width: 280px;
-  height: 940px;
-  padding: 48px 20px 40px 20px;
-
-  background-color: #ffffff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-
-  position: fixed;
+  position: absolute;
+  overflow-y: auto;
   top: 50%;
   left: 50%;
+  padding-top: 48px;
+  padding-bottom: 41px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 280px;
+  max-height: 100vh;
+
+  background-color: $primary-color-light;
+
   transform: translate(-50%, -50%);
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -68,8 +80,11 @@
 .img-thumb {
   min-width: 240px;
   height: 357px;
+  flex-basis: 50%;
+
   @media screen and (min-width: 768px) {
     min-width: 264px;
+    height: 377px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -86,9 +101,10 @@
   object-fit: cover;
 }
 .modal_info {
-  // width: 100%;
+  flex-basis: 50%;
 
   @media screen and (min-width: 768px) {
+    margin-left: 68px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -100,6 +116,7 @@
   font-size: 20px;
   line-height: 1.15;
   color: #000000;
+  margin-top: 20px;
   @media screen and (min-width: 768px) {
   }
 
@@ -112,39 +129,66 @@
   margin-top: 20px;
 }
 
-.modal_detail-ul {
-  list-style: none;
+.modal__movie-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 30px;
+    line-height: 1.17;
+  }
+}
+
+.movie__info-item {
+  display: flex;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.movie__info-item:last-child {
+  margin-bottom: 20px;
+}
+
+.movie__info-title {
+  display: block;
+  min-width: 108px;
+  color: $ternary-color;
+
+  @media screen and (min-width: $desktop) {
+    min-width: 152px;
+  }
+}
+
+.movie__info-data {
   display: flex;
 }
-.modal_detail-ul1 {
-  list-style: none;
-  width: 150px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  color: #8c8c8c;
+
+.votes__colored {
+  display: block;
+  background-color: $accent-color-fill;
+  color: $primary-color-light;
+  height: 14px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 9px;
 }
-.modal_detail-ul2 {
-  list-style: none;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  // display: flex;
-  align-items: center;
-  color: #000000;
+
+.vote__divide {
+  display: block;
+  max-width: 8px;
+  color: $ternary-color;
+  margin-left: 4px;
+  margin-right: 7px;
 }
-.modal_detail-ul1-li:not(:last-child),
-.modal_detail-ul2-li:not(:last-child) {
-  margin-bottom: 8px;
+
+.original-title {
+  text-transform: uppercase;
 }
-.modal_detail-ul2-li span {
-  width: 36px;
-  height: 16px;
-  background: #ff6b01;
-  border-radius: 4px;
-  color: #ffffff;
-  padding: 1px 9px;
-}
+
 .modal_about {
   margin-top: 20px;
   font-weight: 500;
