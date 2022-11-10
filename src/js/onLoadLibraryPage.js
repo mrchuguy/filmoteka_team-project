@@ -1,27 +1,44 @@
+import { loadAllMovie } from './local-storage';
+import { renderFilmsOnLibraryPage } from './render-films';
+
+const removeNotify = () => {
+  const notify = document.querySelector('.notify-lib');
+  if (notify) notify.remove();
+};
+
+const clearLibrary = () => {
+  const galleryContainerLibrary = document.querySelector('.library-box');
+  galleryContainerLibrary.innerHTML = '';
+};
+
 const addNotify = type => {
   const mainPage = document.querySelector('main');
   const markup = `
   <p class="notify-lib">
     ${type} movies library is empty
   </p>`;
-  const notify = document.querySelector('.notify-lib');
-  if (notify) notify.remove();
+  removeNotify();
   mainPage.insertAdjacentHTML('afterbegin', markup);
 };
 
 const loadWatched = () => {
-  //request watched movies
-  if (false) {
-    console.log('Watched');
+  removeNotify();
+  const watchedMovie = loadAllMovie('WATCHED');
+  if (watchedMovie.length > 0) {
+    renderFilmsOnLibraryPage(watchedMovie);
   } else {
+    clearLibrary();
     addNotify('Watched');
   }
 };
 
 const loadQueue = () => {
-  if (false) {
-    console.log('Queued');
+  removeNotify();
+  const queuedMovie = loadAllMovie('QUEUE');
+  if (queuedMovie.length > 0) {
+    renderFilmsOnLibraryPage(queuedMovie);
   } else {
+    clearLibrary();
     addNotify('Queued');
   }
 };

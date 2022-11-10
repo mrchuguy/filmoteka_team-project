@@ -1,11 +1,9 @@
 import { renderGenres } from './renderGenres';
 
-const galleryContainerHome = document.querySelector('.gallery');
-const galleryContainerLibrary = document.querySelector('.library');
-
 // Розмітка на головну сторінку
 
 export function renderFilmsOnHomePage(films) {
+  const galleryContainerHome = document.querySelector('.gallery');
   galleryContainerHome.innerHTML = '';
   const markup = films
     .map(
@@ -35,10 +33,12 @@ export function renderFilmsOnHomePage(films) {
 // Розмітка на бібліотеку
 
 export function renderFilmsOnLibraryPage(films) {
+  const galleryContainerLibrary = document.querySelector('.library-box');
   galleryContainerLibrary.innerHTML = '';
   const markup = films
     .map(
-      `<li class="gallery__item" data-id="${film.id}">
+      film =>
+        `<li class="gallery__item" data-id="${film.id}">
               <a class="gallery__link" href="">
               <div class="gallery__link--wrap">
               <img class="gallery__overlay" src=${nullOrNot(film.poster_path)}
@@ -46,11 +46,11 @@ export function renderFilmsOnLibraryPage(films) {
             </div>
                 <div class="info">
                   <p class="info-name"> ${film.title}</p>
-                  <p class="info-genre-year">${renderGenres(
-                    film.genre_ids
-                  )} | ${Number.parseInt(
-        film.release_date
-      )} <span class="info-rating">${film.vote_average.toFixed(1)}
+                  <p class="info-genre-year">${film.genres
+                    .map(genre => genre.name)
+                    .join(', ')} | ${Number.parseInt(
+          film.release_date
+        )} <span class="info-rating">${film.vote_average.toFixed(1)}
       </span></p>
                 </div>
               </a>
