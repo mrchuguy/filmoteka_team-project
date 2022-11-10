@@ -28,7 +28,7 @@
 }
 @media screen and (max-width: 767px) {
   .footer__modal {
-    width: 400px;
+    width: 430px;
     height: 510px;
   }
 }
@@ -143,6 +143,7 @@
   box-shadow: 0px 1px 1px rgb(0 0 0 /24%);
   top: 45%;
   left: 25%;
+  transition: 500ms;
 }
 @media screen and (max-width: 767px) {
   .footer__block {
@@ -188,7 +189,18 @@
   top: 16px;
   right: 16px;
 }
-
+@media screen and (max-width: 767px) {
+  .footer__modal-btn {
+    top: 10px;
+    right: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .footer__modal-btn {
+    top: 6px;
+    right: 6px;
+  }
+}
 .footer__modal-icons {
   display: block;
   font-family: 'Material Icons';
@@ -204,6 +216,11 @@
   direction: ltr;
   -moz-font-feature-settings: 'liga';
   -moz-osx-font-smoothing: grayscale;
+}
+@media screen and (max-width: 767px) {
+  .footer__modal-icons {
+  font-size: 19px;
+  }
 }
 
 .footer__modal-btn:hover {
