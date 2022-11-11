@@ -17,33 +17,38 @@
 
 .modal-info {
   position: absolute;
-  overflow-y: auto;
   top: 50%;
   left: 50%;
+  overflow: scroll;
+  margin: 0;
+
   padding-top: 48px;
   padding-bottom: 41px;
   padding-left: 20px;
   padding-right: 20px;
-  width: 280px;
-  max-height: 100vh;
+  width: calc(100vw - 30px);
+  max-width: 350px;
+  height: calc(100vh - 30px);
+  max-height: 650px;
 
   background-color: $primary-color-light;
-
+  border-radius: 5px;
   transform: translate(-50%, -50%);
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 
   @media screen and (min-width: 768px) {
-    width: 704px;
-    height: 552px;
-    display: flex;
     padding: 40px;
+    max-width: 704px;
+    max-height: 552px;
+    display: flex;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 806px;
-    min-height: 558px;
+    max-width: 806px;
+    height: auto;
     padding: 40px 12px;
+    overflow: hidden;
   }
 }
 
@@ -89,6 +94,8 @@
   display: block;
   height: 100%;
   width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
   object-fit: cover;
 }
@@ -192,7 +199,6 @@
   color: #000000;
 }
 .modal_about-text {
-  min-height: 154px;
   margin-top: 8px;
   font-weight: 500;
   font-size: 12px;
@@ -203,17 +209,14 @@ button {
   cursor: pointer;
 }
 .btn {
-  width: 136px;
-  height: 44px;
-  left: 799px;
-  top: 553px;
+  margin-bottom: 20px;
+  padding: 14px;
   border: 1px solid #000000;
   border-radius: 5px;
   background: #ffffff;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  align-items: center;
   text-align: center;
   text-transform: uppercase;
   color: #000000;
