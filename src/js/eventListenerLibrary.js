@@ -1,11 +1,12 @@
 import { loadWatched, loadQueue } from './onLoadLibraryPage';
 import loadModalInfo from './loadModalInfo';
-
+import { loadWatched, loadQueue } from './onLoadLibraryPage';
 //-----refs------///
 
 const refs = {
   body: document.querySelector('body'),
   watchedBtn: document.querySelector('.watched'),
+  currentBtn: document.querySelector('.watched.current-button'),
   queueBtn: document.querySelector('.queue'),
   library: document.querySelector('.library'),
   modal: document.querySelector('.backdrop-info'),
@@ -40,6 +41,7 @@ function queueClick() {
 
 function onLibraryCard(e) {
   e.preventDefault();
+  document.addEventListener('keydown', clickCloseModal);
   const id = e.target.parentNode.parentNode.parentNode.dataset.id;
   if (e.target.parentNode.parentNode.parentNode.tagName !== 'LI') {
     return;
@@ -63,6 +65,11 @@ function modalClose(e) {
     refs.teamBackdrop.classList.toggle('is-hidden');
     refs.body.style.overflow = 'visible';
     refs.teamName.classList.toggle('is-hidden');
+  }
+  if (refs.watchedBtn.className === 'watched current-button') {
+    loadWatched();
+  } else {
+    loadQueue();
   }
 }
 
