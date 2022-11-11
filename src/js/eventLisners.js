@@ -39,7 +39,6 @@ refs.teamModalCloseBtn.addEventListener('click', modalClose);
 
 function inputValue(e) {
   searchValue = e.target.value;
-  console.log(searchValue);
 }
 
 function submitSearch(event) {
@@ -51,7 +50,7 @@ function submitSearch(event) {
   }
 }
 
-function onGalleryCard(event) {
+export function onGalleryCard(event) {
   event.preventDefault();
   const id = event.target.parentNode.parentNode.parentNode.dataset.id;
   if (event.target.parentNode.parentNode.parentNode.tagName !== 'LI') {
@@ -63,8 +62,7 @@ function onGalleryCard(event) {
   refs.body.style.overflow = 'hidden';
 }
 
-function modalClose(e) {
-  console.log(e);
+export function modalClose(e) {
   e.preventDefault();
   if (e.target === refs.modalBtnClose) {
     document.removeEventListener('keydown', clickCloseModal);
@@ -79,7 +77,6 @@ function modalClose(e) {
 }
 
 function clickCloseModal(e) {
-  console.log(e);
   e.preventDefault();
   if (e.target === refs.backdrop || e.key === 'Escape') {
     refs.backdrop.classList.toggle('is-hidden');
@@ -109,5 +106,3 @@ function footerClose(e) {
   }
   refs.body.style.overflow = 'visible';
 }
-
-export { modalClose, clickCloseModal, onGalleryCard };
