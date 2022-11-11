@@ -1,5 +1,6 @@
 import { loadAllMovie } from './local-storage';
 import { renderFilmsOnLibraryPage } from './render-films';
+import { spinnerToggle, hideSpinner } from './spinner';
 
 const removeNotify = () => {
   const notify = document.querySelector('.notify-lib');
