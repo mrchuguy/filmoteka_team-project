@@ -56,6 +56,7 @@ function onLibraryCard(e) {
 function modalClose(e) {
   e.preventDefault();
   if (e.target === refs.modalBtnClose.firstElementChild) {
+    checkActiveBtn();
     document.removeEventListener('keydown', clickCloseModal);
     refs.backdrop.classList.toggle('is-hidden');
     refs.body.style.overflow = 'visible';
@@ -65,16 +66,12 @@ function modalClose(e) {
     refs.body.style.overflow = 'visible';
     refs.teamName.classList.toggle('is-hidden');
   }
-  if (refs.watchedBtn.className === 'watched current-button') {
-    loadWatched();
-  } else {
-    loadQueue();
-  }
 }
 
 function clickCloseModal(e) {
   e.preventDefault();
   if (e.target === refs.backdrop || e.key === 'Escape') {
+    checkActiveBtn();
     refs.backdrop.classList.toggle('is-hidden');
     document.removeEventListener('keydown', clickCloseModal);
     refs.body.style.overflow = 'visible';
@@ -101,4 +98,12 @@ function footerClose(e) {
     refs.teamBackdrop.removeEventListener('click', footerClose);
   }
   refs.body.style.overflow = 'visible';
+}
+
+function checkActiveBtn() {
+  if (refs.watchedBtn.className === 'watched current-button') {
+    loadWatched();
+  } else {
+    loadQueue();
+  }
 }
