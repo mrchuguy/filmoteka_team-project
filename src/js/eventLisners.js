@@ -109,3 +109,5 @@ function footerClose(e) {
   }
   refs.body.style.overflow = 'visible';
 }
+
+export { modalClose, clickCloseModal, onGalleryCard };
