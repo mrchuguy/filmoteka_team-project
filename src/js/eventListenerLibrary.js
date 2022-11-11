@@ -1,5 +1,6 @@
 import { loadWatched, loadQueue } from './onLoadLibraryPage';
 import loadModalInfo from './loadModalInfo';
+
 //-----refs------///
 
 const refs = {
@@ -11,12 +12,19 @@ const refs = {
   modalBtnClose: document.querySelector('.modal__btn-close'),
   gallery: document.querySelector('.gallery'),
   backdrop: document.querySelector('.backdrop-info'),
+  teamBtn: document.querySelector('.modal__open'),
+  teamBackdrop: document.querySelector('.backdrop__modal'),
+  teamModalCloseBtn: document.querySelector('.footer__modal-icons'),
+  teamName: document.querySelector('.footer__block'),
 };
 
 refs.watchedBtn.addEventListener('click', watchedClick);
 refs.queueBtn.addEventListener('click', queueClick);
 refs.gallery.addEventListener('click', onLibraryCard);
 refs.modalBtnClose.firstElementChild.addEventListener('click', modalClose);
+refs.backdrop.addEventListener('click', clickCloseModal);
+refs.teamBtn.addEventListener('click', footerOpen);
+refs.teamModalCloseBtn.addEventListener('click', modalClose);
 
 function watchedClick() {
   refs.watchedBtn.classList.add('current-button');
@@ -41,8 +49,51 @@ function onLibraryCard(e) {
   refs.body.style.overflow = 'hidden';
 }
 
+//-------Copy from eventLisners---------//
+
 function modalClose(e) {
+  console.log(e.target);
   e.preventDefault();
-  refs.backdrop.classList.toggle('is-hidden');
+  if (e.target === refs.modalBtnClose.firstElementChild) {
+    document.removeEventListener('keydown', clickCloseModal);
+    refs.backdrop.classList.toggle('is-hidden');
+    refs.body.style.overflow = 'visible';
+  } else if (e.target === refs.teamModalCloseBtn) {
+    document.removeEventListener('keydown', footerClose);
+    refs.teamBackdrop.classList.toggle('is-hidden');
+    refs.body.style.overflow = 'visible';
+    refs.teamName.classList.toggle('is-hidden');
+  }
+}
+
+function clickCloseModal(e) {
+  console.log(e);
+  e.preventDefault();
+  if (e.target === refs.backdrop || e.key === 'Escape') {
+    refs.backdrop.classList.toggle('is-hidden');
+    document.removeEventListener('keydown', clickCloseModal);
+    refs.body.style.overflow = 'visible';
+  }
+}
+
+function footerOpen(e) {
+  e.preventDefault();
+  document.addEventListener('keydown', footerClose);
+  refs.teamBackdrop.classList.toggle('is-hidden');
+  refs.body.style.overflow = 'hidden';
+  setTimeout(() => {
+    refs.teamName.classList.toggle('is-hidden');
+  }, 600);
+  refs.teamBackdrop.addEventListener('click', footerClose);
+}
+
+function footerClose(e) {
+  e.preventDefault();
+  if (e.target === refs.teamBackdrop || e.key === 'Escape') {
+    refs.teamBackdrop.classList.toggle('is-hidden');
+    document.removeEventListener('keydown', footerClose);
+    refs.teamName.classList.toggle('is-hidden');
+    refs.teamBackdrop.removeEventListener('click', footerClose);
+  }
   refs.body.style.overflow = 'visible';
 }
