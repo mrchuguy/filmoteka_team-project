@@ -54,7 +54,6 @@ function onLibraryCard(e) {
 //-------Copy from eventLisners---------//
 
 function modalClose(e) {
-  console.log(e.target);
   e.preventDefault();
   if (e.target === refs.modalBtnClose.firstElementChild) {
     document.removeEventListener('keydown', clickCloseModal);
@@ -74,7 +73,6 @@ function modalClose(e) {
 }
 
 function clickCloseModal(e) {
-  console.log(e);
   e.preventDefault();
   if (e.target === refs.backdrop || e.key === 'Escape') {
     refs.backdrop.classList.toggle('is-hidden');

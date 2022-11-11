@@ -39,7 +39,6 @@ refs.teamModalCloseBtn.addEventListener('click', modalClose);
 
 function inputValue(e) {
   searchValue = e.target.value;
-  console.log(searchValue);
 }
 
 function submitSearch(event) {
