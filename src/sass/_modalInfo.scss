@@ -210,7 +210,9 @@ button {
 }
 .btn {
   margin-bottom: 20px;
-  padding: 14px;
+  width: 110px;
+  height: 44px;
+  /*padding: 14px;*/
   border: 1px solid #000000;
   border-radius: 5px;
   background: #ffffff;
@@ -227,11 +229,11 @@ button {
 }
 
 .button-watch {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  /*padding-top: 8px;
+  padding-bottom: 8px;*/
   @media screen and (min-width: 768px) {
-    padding-top: 14px;
-    padding-bottom: 12px;
+    /*padding-top: 14px;
+    padding-bottom: 12px;*/
   }
 
   @media screen and (min-width: 1280px) {
@@ -240,8 +242,8 @@ button {
 }
 .button-queue {
   margin-left: 20px;
-  padding-top: 14px;
-  padding-bottom: 12px;
+  /*padding-top: 14px;
+  padding-bottom: 12px;*/
 
   @media screen and (min-width: 768px) {
     margin-left: 15px;
@@ -250,6 +252,26 @@ button {
   @media screen and (min-width: 1280px) {
   }
 }
+
+.button-youtube{
+  margin-left: 20px;
+  /*padding-top: 14px;
+  padding-bottom: 12px;*/
+
+  @media screen and (min-width: 768px) {
+    margin-left: 15px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
+}
+.button-youtube:hover,
+.button-youtube:focus {
+    background: #ff6b01;
+    border: 1px solid #ffffff;
+    font-weight: 500;
+    color: #ffffff;
+  }I
 
 .button-watch,
 .button-queue {
@@ -276,6 +298,7 @@ button {
   }
 }
 
+
 .button-watch,
 .button-queue {
   &[data-type='delete']:hover::before {
@@ -301,4 +324,8 @@ button {
   &[data-type='delete']::before {
     content: 'in queue';
   }
+}
+
+.basicLightbox {
+  overflow: scroll;
 }
