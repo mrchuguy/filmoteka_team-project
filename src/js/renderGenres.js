@@ -2,7 +2,7 @@ import ApiService from './fetch-api';
 
 const fetchGenres = new ApiService();
 
-let genres = null;
+export let genres = null;
 
 const initGenres = () => {
   fetchGenres.getMovieGenres().then(response => {
