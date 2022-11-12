@@ -19,9 +19,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 650px;
+  width: 590px;
   height: 610px;
-  background-color: $secondary-color-light;
+  background-image: url('/src/jpg/back.jpg');
   border-radius: 15px;
   box-shadow: 0px 3px 3px rgb(0 0 0 / 12%), 0px 3px 3px rgb(0 0 0 / 14%),
     0px 3px 3px rgb(0 0 0 / 20%);
@@ -53,7 +53,7 @@
 }
 .footer__item {
   position: relative;
-  width: 180px;
+  width: 170px;
   height: 190px;
   background-color: $primary-color-light;
   border-radius: 10%;
@@ -78,7 +78,7 @@
   margin: 0 auto;
   border-radius: 18%;
   padding-top: 4px;
-  width: 150px;
+  width: 130px;
   height: 123px;
   box-shadow: 2px 5px 5px rgb(0 0 0 /24%);
 }
@@ -92,7 +92,7 @@
   display: block;
   text-align: center;
   padding-top: 5px;
-  font-size: 13px;
+  font-size: 12px;
 }
 .footer__social {
   position: absolute;
@@ -126,7 +126,7 @@
   fill: $primary-color;
 }
 .footer__about {
-  padding-top: 10px;
+  padding-top: 7px;
 }
 .footer__block {
   position: absolute;
@@ -186,8 +186,8 @@
   padding: 0;
   transition: transform 0.3s;
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 10px;
+  right: 6px;
 }
 @media screen and (max-width: 767px) {
   .footer__modal-btn {
