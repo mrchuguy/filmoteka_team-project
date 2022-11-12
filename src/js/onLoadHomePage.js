@@ -6,6 +6,7 @@ import { renderFilmsOnHomePage } from './render-films';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { spinnerToggle, hideSpinner } from './spinner';
 import { notifyOptions, ERROR_MESSAGE } from './notifyOptions';
+import { genres } from './renderGenres';
 
 const newApi = new ApiService();
 let lastPage = null;
@@ -16,26 +17,17 @@ const windowScroll = () => {
   }
 };
 
-const hideSpinnerAfterLoad = () => {
-  // const lastImage =
-  //   document.querySelector('.gallery').lastElementChild.firstElementChild
-  //     .firstElementChild;
-  // lastImage.onload = function () {
-  hideSpinner();
-  // };
-};
-
 const onLoadHomePage = () => {
   spinnerToggle();
   newApi.findTrending().then(response => {
     /* Render movies */
+    while (genres.length === 0) {}
     renderFilmsOnHomePage(response.data.results);
-
     lastPage = Math.ceil(response.data.total_results / 20);
     /* Pagination */
     initPagination(true, response.data.total_results);
 
-    hideSpinnerAfterLoad();
+    hideSpinner();
   });
 };
 
@@ -54,7 +46,7 @@ const onLoadSearchPage = q => {
       Notify.failure(ERROR_MESSAGE, notifyOptions);
       hideSpinner();
     }
-    hideSpinnerAfterLoad();
+    hideSpinner();
   });
 };
 
@@ -93,13 +85,13 @@ const initPagination = (isPopularFilms, totalResult) => {
         newApi.findTrending().then(response => {
           /* Render movies */
           renderFilmsOnHomePage(response.data.results);
-          hideSpinnerAfterLoad();
+          hideSpinner();
         });
       else
         newApi.findByKeyword().then(response => {
           /* Render movies */
           renderFilmsOnHomePage(response.data.results);
-          hideSpinnerAfterLoad();
+          hideSpinner();
         });
     });
   } else {
