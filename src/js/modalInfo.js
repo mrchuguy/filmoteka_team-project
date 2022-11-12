@@ -43,6 +43,9 @@ export function renderFilmsModalPage(film) {
         <button type="button" class="button-queue btn" data-type data-id="${
           film.id
         }"></button>
+        <button type="button" class="button-youtube btn" data-type data-id="${
+          film.id
+        }">TRAILER</button>
       </div>
     </div>`;
 

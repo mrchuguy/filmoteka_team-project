@@ -2,10 +2,13 @@ import ApiService from './fetch-api';
 import { spinnerToggle, hideSpinner } from './spinner';
 import { renderFilmsModalPage } from './modalInfo';
 import { checkMovieInStorage, saveMovie, deleteMovie } from './local-storage';
+import { creatLink } from './trailer';
+
 
 const infoMovieApi = new ApiService();
 let watchedBtn = null;
 let queueBtn = null;
+export let trailer = null;
 
 const checkLocalSrorage = id => {
   if (checkMovieInStorage('WATCHED', id)) {
@@ -55,6 +58,9 @@ const loadModalInfo = id => {
 
     watchedBtn = document.querySelector('.button-watch');
     queueBtn = document.querySelector('.button-queue');
+    trailer = document.querySelector('.button-youtube');
+    creatLink();
+    
     //перевірка на присутність фільму у сховищі (назначення data-type)
     checkLocalSrorage(response.data.id);
     //навішування слухача подій
@@ -63,6 +69,8 @@ const loadModalInfo = id => {
 
     hideSpinner();
   });
+ 
 };
+
 
 export default loadModalInfo;
