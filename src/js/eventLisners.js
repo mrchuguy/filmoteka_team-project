@@ -42,7 +42,7 @@ function inputValue(e) {
 }
 
 function submitSearch(event) {
-  event.preventDefault();
+  // event.preventDefault();
   if (searchValue === '') {
     Notify.failure(WARNING_MESSAGE, notifyOptions);
   } else {
@@ -97,8 +97,8 @@ function footerOpen(e) {
 }
 
 function footerClose(e) {
-  e.preventDefault();
   if (e.target === refs.teamBackdrop || e.key === 'Escape') {
+    e.preventDefault();
     refs.teamBackdrop.classList.toggle('is-hidden');
     document.removeEventListener('keydown', footerClose);
     refs.teamName.classList.toggle('is-hidden');
