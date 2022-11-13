@@ -1,7 +1,7 @@
 .backdrop-info {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -104,10 +104,12 @@
 
   @media screen and (min-width: 768px) {
     margin-left: 68px;
+    max-width: 264px;
   }
 
   @media screen and (min-width: 1280px) {
     margin-left: 16px;
+    max-width: 391px;
   }
 }
 .modal_title {
@@ -156,10 +158,6 @@
   display: block;
   min-width: 108px;
   color: $ternary-color;
-
-  @media screen and (min-width: $desktop) {
-    min-width: 152px;
-  }
 }
 
 .movie__info-data {
@@ -209,10 +207,8 @@ button {
   cursor: pointer;
 }
 .btn {
-  margin-bottom: 20px;
   width: 110px;
   height: 44px;
-  /*padding: 14px;*/
   border: 1px solid #000000;
   border-radius: 5px;
   background: #ffffff;
@@ -222,56 +218,50 @@ button {
   text-align: center;
   text-transform: uppercase;
   color: #000000;
+  padding: 0;
 }
 .modal_button {
   display: flex;
+  gap: 15px;
   margin-top: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+
+  @media screen and (min-width: 1280px) {
+    flex-wrap: nowrap;
+  }
 }
 
+.button-queue,
 .button-watch {
-  /*padding-top: 8px;
-  padding-bottom: 8px;*/
+  flex-basis: 147px;
   @media screen and (min-width: 768px) {
-    /*padding-top: 14px;
-    padding-bottom: 12px;*/
+    flex-basis: 124px;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-left: 8px;
+    flex-basis: auto;
   }
 }
-.button-queue {
-  margin-left: 20px;
-  /*padding-top: 14px;
-  padding-bottom: 12px;*/
+
+.button-youtube {
+  flex-basis: 100%;
 
   @media screen and (min-width: 768px) {
-    margin-left: 15px;
   }
 
   @media screen and (min-width: 1280px) {
+    flex-basis: auto;
   }
 }
 
-.button-youtube{
-  margin-left: 20px;
-  /*padding-top: 14px;
-  padding-bottom: 12px;*/
-
-  @media screen and (min-width: 768px) {
-    margin-left: 15px;
-  }
-
-  @media screen and (min-width: 1280px) {
-  }
-}
 .button-youtube:hover,
 .button-youtube:focus {
-    background: #ff6b01;
-    border: 1px solid #ffffff;
-    font-weight: 500;
-    color: #ffffff;
-  }I
+  background: #ff6b01;
+  border: 1px solid #ffffff;
+  font-weight: 500;
+  color: #ffffff;
+}
 
 .button-watch,
 .button-queue {
@@ -297,7 +287,6 @@ button {
     color: #000000;
   }
 }
-
 
 .button-watch,
 .button-queue {
