@@ -175,6 +175,11 @@
 }
 .modal__open {
   cursor: pointer;
+  text-decoration: underline;
+  &:focus,
+  &:hover {
+    color: $accent-color;
+  }
 }
 
 .footer__modal-btn {
@@ -219,7 +224,7 @@
 }
 @media screen and (max-width: 767px) {
   .footer__modal-icons {
-  font-size: 19px;
+    font-size: 19px;
   }
 }
 
