@@ -122,6 +122,11 @@
   .tui-page-btn-custom.tui-first,
   .tui-page-btn-custom.tui-last {
     background-color: $secondary-color-light;
+
+    &:hover,
+    &:focus {
+      background-color: $accent-color;
+    }
   }
   .tui-ico-next {
     background: url(/src/images/arrow-right.svg) no-repeat 0 0;
