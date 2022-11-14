@@ -33,6 +33,7 @@ const onLoadHomePage = () => {
 
 const onLoadSearchPage = q => {
   newApi.searchQuery = q;
+  newApi.page = 1;
   spinnerToggle();
   newApi.findByKeyword().then(response => {
     if (response.data.total_results > 0) {
