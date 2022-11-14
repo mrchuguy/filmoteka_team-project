@@ -73,15 +73,25 @@
   box-shadow: 0px 2px 2px rgb(0 0 0 / 18%), 0px 2px 2px rgb(0 0 0 / 18%),
     0px 2px 2px rgb(0 0 0 / 28%);
 }
-.footer__photo {
+.footer__photo-wrap {
   display: block;
   margin: 0 auto;
   border-radius: 18%;
   padding-top: 4px;
-  width: 130px;
+  width: 120px;
   height: 123px;
   box-shadow: 2px 5px 5px rgb(0 0 0 /24%);
+  border-radius: 10px;
+  overflow: hidden;
 }
+
+.footer__photo {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .footer__name {
   display: block;
   text-align: center;
@@ -220,7 +230,6 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -moz-font-feature-settings: 'liga';
   -moz-osx-font-smoothing: grayscale;
 }
 @media screen and (max-width: 767px) {
