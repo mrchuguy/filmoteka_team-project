@@ -297,7 +297,7 @@ button {
 
 .button-watch {
   &[data-type='add']::before {
-    content: 'add to wathed';
+    content: 'add to watched';
   }
 
   &[data-type='delete']::before {
