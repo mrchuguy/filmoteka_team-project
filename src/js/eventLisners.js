@@ -42,7 +42,7 @@ function inputValue(e) {
 }
 
 function submitSearch(event) {
-  // event.preventDefault();
+  event.preventDefault();
   if (searchValue === '') {
     Notify.failure(WARNING_MESSAGE, notifyOptions);
   } else {
